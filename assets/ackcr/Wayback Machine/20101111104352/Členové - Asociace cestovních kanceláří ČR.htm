@@ -1,0 +1,599 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="cs">
+<head>
+
+<script type="text/javascript" src="/static/js/analytics.js" ></script>
+<link type="text/css" rel="stylesheet" href="/static/css/banner-styles.css"/>
+
+
+
+  
+  <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-language" content="cs" />
+  <meta name="google-site-verification" content="YoSVW13qPZtmnI5S0bSSWomVSQqGziVFgM11DzVRfUU" />
+
+  
+    <base href="/web/20101111104352/http://www.ackcr.cz/" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <meta name="robots" content="index, follow" />
+  <meta name="keywords" content="" />
+  <meta name="title" content="Členové - Asociace cestovních kanceláří ČR" />
+  <meta name="description" content="Asociace cestovních kanceláří České republiky je dobrovolným sdružením subjektů domácího i zahraničního cestovního ruchu oprávněných k činnosti na území ČR." />
+  <meta name="generator" content="Joomla! 1.5 - Open Source Content Management" />
+  <title>Členové - Asociace cestovních kanceláří ČR</title>
+  <link href="/web/20101111104352im_/http://www.ackcr.cz/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+  <script type="text/javascript" src="/web/20101111104352js_/http://www.ackcr.cz/media/system/js/mootools.js"></script>
+  <script type="text/javascript">
+		window.addEvent('domready', function(){ var JTooltips = new Tips($$('.hasTip'), { maxTitleChars: 50, fixed: false}); });
+  </script>
+
+  
+  <link href="/web/20101111104352cs_/http://www.ackcr.cz/templates/ackr/style/layout.css" rel="stylesheet" type="text/css" />  
+</head>
+
+<body>
+<!-- BEGIN WAYBACK TOOLBAR INSERT -->
+<script> if (window.archive_analytics) { window.archive_analytics.values['server_name']="wwwb-app14.us.archive.org";}; </script>
+
+<script type="text/javascript" src="/static/js/disclaim-element.js" ></script>
+<script type="text/javascript" src="/static/js/graph-calc.js" ></script>
+<script type="text/javascript" src="/static/jflot/jquery.min.js" ></script>
+<script type="text/javascript">
+//<![CDATA[
+var firstDate = 820454400000;
+var lastDate = 1420070399999;
+var wbPrefix = "/web/";
+var wbCurrentUrl = "http:\/\/www.ackcr.cz\/clenove-2";
+
+var curYear = -1;
+var curMonth = -1;
+var yearCount = 18;
+var firstYear = 1996;
+var imgWidth = 475;
+var yearImgWidth = 25;
+var monthImgWidth = 2;
+var trackerVal = "none";
+var displayDay = "11";
+var displayMonth = "Nov";
+var displayYear = "2010";
+var prettyMonths = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+
+function showTrackers(val) {
+	if(val == trackerVal) {
+		return;
+	}
+	if(val == "inline") {
+		document.getElementById("displayYearEl").style.color = "#ec008c";
+		document.getElementById("displayMonthEl").style.color = "#ec008c";
+		document.getElementById("displayDayEl").style.color = "#ec008c";		
+	} else {
+		document.getElementById("displayYearEl").innerHTML = displayYear;
+		document.getElementById("displayYearEl").style.color = "#ff0";
+		document.getElementById("displayMonthEl").innerHTML = displayMonth;
+		document.getElementById("displayMonthEl").style.color = "#ff0";
+		document.getElementById("displayDayEl").innerHTML = displayDay;
+		document.getElementById("displayDayEl").style.color = "#ff0";
+	}
+   document.getElementById("wbMouseTrackYearImg").style.display = val;
+   document.getElementById("wbMouseTrackMonthImg").style.display = val;
+   trackerVal = val;
+}
+function getElementX2(obj) {
+	var thing = jQuery(obj);
+	if((thing == undefined) 
+			|| (typeof thing == "undefined") 
+			|| (typeof thing.offset == "undefined")) {
+		return getElementX(obj);
+	}
+	return Math.round(thing.offset().left);
+}
+function trackMouseMove(event,element) {
+
+   var eventX = getEventX(event);
+   var elementX = getElementX2(element);
+   var xOff = eventX - elementX;
+	if(xOff < 0) {
+		xOff = 0;
+	} else if(xOff > imgWidth) {
+		xOff = imgWidth;
+	}
+   var monthOff = xOff % yearImgWidth;
+
+   var year = Math.floor(xOff / yearImgWidth);
+	var yearStart = year * yearImgWidth;
+   var monthOfYear = Math.floor(monthOff / monthImgWidth);
+   if(monthOfYear > 11) {
+       monthOfYear = 11;
+   }
+   // 1 extra border pixel at the left edge of the year:
+   var month = (year * 12) + monthOfYear;
+   var day = 1;
+	if(monthOff % 2 == 1) {
+		day = 15;
+	}
+	var dateString = 
+		zeroPad(year + firstYear) + 
+		zeroPad(monthOfYear+1,2) +
+		zeroPad(day,2) + "000000";
+
+	var monthString = prettyMonths[monthOfYear];
+	document.getElementById("displayYearEl").innerHTML = year + 1996;
+	document.getElementById("displayMonthEl").innerHTML = monthString;
+	// looks too jarring when it changes..
+	//document.getElementById("displayDayEl").innerHTML = zeroPad(day,2);
+
+	var url = wbPrefix + dateString + '/' +  wbCurrentUrl;
+	document.getElementById('wm-graph-anchor').href = url;
+
+   //document.getElementById("wmtbURL").value="evX("+eventX+") elX("+elementX+") xO("+xOff+") y("+year+") m("+month+") monthOff("+monthOff+") DS("+dateString+") Moy("+monthOfYear+") ms("+monthString+")";
+   if(curYear != year) {
+       var yrOff = year * yearImgWidth;
+       document.getElementById("wbMouseTrackYearImg").style.left = yrOff + "px";
+       curYear = year;
+   }
+   if(curMonth != month) {
+       var mtOff = year + (month * monthImgWidth) + 1;
+       document.getElementById("wbMouseTrackMonthImg").style.left = mtOff + "px";
+       curMonth = month;
+   }
+}
+//]]>
+</script>
+
+<style type="text/css">body{margin-top:0!important;padding-top:0!important;min-width:800px!important;}#wm-ipp a:hover{text-decoration:underline!important;}</style>
+<div id="wm-ipp" lang="en" class="__wb_banner_div" style="display:none; position:relative;padding:0 5px;min-height:70px;min-width:800px">
+
+
+<div id="wm-ipp-inside" class="__wb_banner_div" style="position:fixed;padding:0!important;margin:0!important;width:97%;min-width:780px;border:5px solid #000;border-top:none;background-image:url(/static/images/toolbar/wm_tb_bk_trns.png);text-align:center;-moz-box-shadow:1px 1px 3px #333;-webkit-box-shadow:1px 1px 3px #333;box-shadow:1px 1px 3px #333;font-size:11px!important;font-family:'Lucida Grande','Arial',sans-serif!important;">
+   <table style="border-collapse:collapse;margin:0;padding:0;width:100%;"><tbody><tr>
+   <td style="padding:10px;vertical-align:top;min-width:110px;">
+   <a href="/web/" title="Wayback Machine home page" style="background-color:transparent;border:none;"><img src="/static/images/toolbar/wayback-toolbar-logo.png" alt="Wayback Machine" width="110" height="39" border="0"/></a>
+   </td>
+   <td style="padding:0!important;text-align:center;vertical-align:top;width:100%;">
+
+       <table style="border-collapse:collapse;margin:0 auto;padding:0;width:570px;"><tbody><tr>
+       <td style="padding:3px 0;" colspan="2">
+       <form target="_top" method="get" action="/web/form-submit.jsp" name="wmtb" id="wmtb" style="margin:0!important;padding:0!important;"><input type="text" name="url" id="wmtbURL" value="http://www.ackcr.cz/clenove-2" style="width:400px;font-size:11px;font-family:'Lucida Grande','Arial',sans-serif;" onfocus="javascript:this.focus();this.select();" /><input type="hidden" name="type" value="replay" /><input type="hidden" name="date" value="20101111104352" /><input type="submit" value="Go" style="font-size:11px;font-family:'Lucida Grande','Arial',sans-serif;margin-left:5px;width: inherit !important" /><span id="wm_tb_options" style="display:block;"></span></form>
+       </td>
+       <td style="vertical-align:bottom;padding:5px 0 0 0!important;" rowspan="2">
+           <table style="border-collapse:collapse;width:110px;color:#99a;font-family:'Helvetica','Lucida Grande','Arial',sans-serif;"><tbody>
+			
+           <!-- NEXT/PREV MONTH NAV AND MONTH INDICATOR -->
+           <tr style="width:110px;height:16px;font-size:10px!important;">
+           	<td style="padding-right:9px;font-size:11px!important;font-weight:bold;text-transform:uppercase;text-align:right;white-space:nowrap;overflow:visible;" nowrap="nowrap">
+               
+                       Oct
+                       
+               </td>
+               <td id="displayMonthEl" style="background:#000;color:#ff0;font-size:11px!important;font-weight:bold;text-transform:uppercase;width:34px;height:15px;padding-top:1px;text-align:center;" title="You are here: 10:43:52 Nov 11, 2010">NOV</td>
+				<td style="padding-left:9px;font-size:11px!important;font-weight:bold;text-transform:uppercase;white-space:nowrap;overflow:visible;" nowrap="nowrap">
+               
+		                <a href="/web/20110801042956/http://www.ackcr.cz/clenove-2" style="text-decoration:none;color:#33f;font-weight:bold;background-color:transparent;border:none;" title="1 Aug 2011"><strong>AUG</strong></a>
+		                
+               </td>
+           </tr>
+
+           <!-- NEXT/PREV CAPTURE NAV AND DAY OF MONTH INDICATOR -->
+           <tr>
+               <td style="padding-right:9px;white-space:nowrap;overflow:visible;text-align:right!important;vertical-align:middle!important;" nowrap="nowrap">
+               
+                       <img src="/static/images/toolbar/wm_tb_prv_off.png" alt="Previous capture" width="14" height="16" border="0" />
+                       
+               </td>
+               <td id="displayDayEl" style="background:#000;color:#ff0;width:34px;height:24px;padding:2px 0 0 0;text-align:center;font-size:24px;font-weight: bold;" title="You are here: 10:43:52 Nov 11, 2010">11</td>
+				<td style="padding-left:9px;white-space:nowrap;overflow:visible;text-align:left!important;vertical-align:middle!important;" nowrap="nowrap">
+               
+		                <a href="/web/20110801042956/http://www.ackcr.cz/clenove-2" title="4:29:56 Aug 1, 2011" style="background-color:transparent;border:none;"><img src="/static/images/toolbar/wm_tb_nxt_on.png" alt="Next capture" width="14" height="16" border="0"/></a>
+		                
+			    </td>
+           </tr>
+
+           <!-- NEXT/PREV YEAR NAV AND YEAR INDICATOR -->
+           <tr style="width:110px;height:13px;font-size:9px!important;">
+				<td style="padding-right:9px;font-size:11px!important;font-weight: bold;text-align:right;white-space:nowrap;overflow:visible;" nowrap="nowrap">
+               
+                       2009
+                       
+               </td>
+               <td id="displayYearEl" style="background:#000;color:#ff0;font-size:11px!important;font-weight: bold;padding-top:1px;width:34px;height:13px;text-align:center;" title="You are here: 10:43:52 Nov 11, 2010">2010</td>
+				<td style="padding-left:9px;font-size:11px!important;font-weight: bold;white-space:nowrap;overflow:visible;" nowrap="nowrap">
+               
+		                <a href="/web/20130707094049/http://www.ackcr.cz/clenove-2" style="text-decoration:none;color:#33f;font-weight:bold;background-color:transparent;border:none;" title="7 Jul 2013"><strong>2013</strong></a>
+		                
+				</td>
+           </tr>
+           </tbody></table>
+       </td>
+
+       </tr>
+       <tr>
+       <td style="vertical-align:middle;padding:0!important;">
+           <a href="/web/20101111104352*/http://www.ackcr.cz/clenove-2" style="color:#33f;font-size:11px;font-weight:bold;background-color:transparent;border:none;" title="See a list of every capture for this URL"><strong>4 captures</strong></a>
+           <div class="__wb_banner_div" style="margin:0!important;padding:0!important;color:#666;font-size:9px;padding-top:2px!important;white-space:nowrap;" title="Timespan for captures of this URL">11 Nov 10 - 7 Jul 13</div>
+       </td>
+       <td style="padding:0!important;">
+       <a style="position:relative; white-space:nowrap; width:475px;height:27px;" href="" id="wm-graph-anchor">
+       <div class="__wb_banner_div" id="wm-ipp-sparkline" style="position:relative; white-space:nowrap; width:475px;height:27px;background-color:#fff;cursor:pointer;border-right:1px solid #ccc;" title="Explore captures for this URL">
+			<img id="sparklineImgId" style="position:absolute; z-index:9012; top:0px; left:0px;"
+				onmouseover="showTrackers('inline');" 
+				onmouseout="showTrackers('none');"
+				onmousemove="trackMouseMove(event,this)"
+				alt="sparklines"
+				width="475"
+				height="27"
+				border="0"
+				src="/web/jsp/graph.jsp?graphdata=475_27_1996:-1:000000000000_1997:-1:000000000000_1998:-1:000000000000_1999:-1:000000000000_2000:-1:000000000000_2001:-1:000000000000_2002:-1:000000000000_2003:-1:000000000000_2004:-1:000000000000_2005:-1:000000000000_2006:-1:000000000000_2007:-1:000000000000_2008:-1:000000000000_2009:-1:000000000000_2010:10:000000000010_2011:-1:000000010100_2012:-1:000000000000_2013:-1:000000100000_2014:-1:000000000000"></img>
+			<img id="wbMouseTrackYearImg" 
+				style="display:none; position:absolute; z-index:9010;"
+				width="25" 
+				height="27"
+				border="0"
+				src="/static/images/toolbar/transp-yellow-pixel.png"></img>
+			<img id="wbMouseTrackMonthImg"
+				style="display:none; position:absolute; z-index:9011; " 
+				width="2"
+				height="27" 
+				border="0"
+				src="/static/images/toolbar/transp-red-pixel.png"></img>
+       </div>
+		</a>
+
+       </td>
+       </tr></tbody></table>
+   </td>
+   <td style="text-align:right;padding:5px;width:65px;font-size:11px!important;">
+       <a href="javascript:;" onclick="document.getElementById('wm-ipp').style.display='none';" style="display:block;padding-right:18px;background:url(/static/images/toolbar/wm_tb_close.png) no-repeat 100% 0;color:#33f;font-family:'Lucida Grande','Arial',sans-serif;margin-bottom:23px;background-color:transparent;border:none;" title="Close the toolbar">Close</a>
+       <a href="http://faq.web.archive.org/" style="display:block;padding-right:18px;background:url(/static/images/toolbar/wm_tb_help.png) no-repeat 100% 0;color:#33f;font-family:'Lucida Grande','Arial',sans-serif;background-color:transparent;border:none;" title="Get some help using the Wayback Machine">Help</a>
+   </td>
+   </tr></tbody></table>
+
+</div>
+</div>
+<script type="text/javascript">
+ var wmDisclaimBanner = document.getElementById("wm-ipp");
+ if(wmDisclaimBanner != null) {
+   disclaimElement(wmDisclaimBanner);
+ }
+</script>
+<!-- END WAYBACK TOOLBAR INSERT -->
+  
+  <div id="container">
+    <div id="header_wrapper">
+      <div id="header">
+                
+        <div id="logo_background"></div>
+        <div id="logo" onclick="window.open('/', '_self');" style="cursor:pointer;"></div>
+        
+        <div id="language">
+          <div id="jflanguageselection"><div class="rawimages"><span id="active_language"><a href="/web/20101111104352/http://www.ackcr.cz/"><img src="/web/20101111104352im_/http://www.ackcr.cz/images/flag_cz.png" alt="Čeština (Česká republika)" title="Čeština (Česká republika)" /></a></span><span><a href="/web/20101111104352/http://www.ackcr.cz/?lang=en"><img src="/web/20101111104352im_/http://www.ackcr.cz/images/flag_en.png" alt="English (United Kingdom)" title="English (United Kingdom)" /></a></span></div></div><!--Joom!fish V2.0.3 (Flash)-->
+<!-- &copy; 2003-2009 Think Network, released under the GPL. -->
+<!-- More information: at /web/20101111104352/http://www.joomfish.net -->
+
+        </div>
+
+                
+        <div id="login">
+          <a href="/web/20101111104352/http://www.ackcr.cz/prihlaseni/prihlasit-se">Přihlášení</a>
+        </div>
+        
+        <div id="search">
+          <form action="/web/20101111104352/http://www.ackcr.cz/index.php" method="get">
+            <input type="hidden" name="option" value="com_search" />
+            <input type="hidden" name="lang" value="cs" />
+            <p><input id="search_text" name="searchword" type="text" size="20" /><input id="button_search" type="image" src="/web/20101111104352im_/http://www.ackcr.cz/templates/ackr/img/button_magnifier.png" /></p>
+          </form>
+        </div>
+        
+                  
+        <div id="navigation">
+          <div class="bookmark novinari">
+            <div class="bookmark_left"></div>
+            <div class="bookmark_middle">
+              Novináři<br />
+              <span>tisk</span>
+              
+              <div class="bookmark_content">
+                		<ul class="menu"><li class="item321"><a href="/web/20101111104352/http://www.ackcr.cz/tiskove-zpravy/"><span>Tiskové zprávy</span></a></li></ul>                
+                <div class="bookmark_content_corners"></div>
+              </div>
+            </div>
+            <div class="bookmark_right"></div>
+          </div>
+
+          <div class="bookmark odbornici">
+            <div class="bookmark_left"></div>
+            <div class="bookmark_middle">
+              Odborníci<br />
+              <span>profesionálové</span>
+              
+              <div class="bookmark_content">
+                		<ul class="menu"><li class="item328"><a href="/web/20101111104352/http://www.ackcr.cz/aktuality-pro-odborniky/"><span>Aktuality</span></a></li><li class="item329"><a href="/web/20101111104352/http://www.ackcr.cz/klubove-dny-a-akce/"><span>Klubové dny &amp; akce</span></a></li><li class="item371"><a href="/web/20101111104352/http://www.ackcr.cz/volne-vzdelavaci-programy/"><span>Kurzy &amp; semináře</span></a></li><li class="item370"><a href="/web/20101111104352/http://www.ackcr.cz/pod-kridly-asociace/"><span>Pod křídly asociace</span></a></li></ul>                
+                <div class="bookmark_content_corners"></div>
+              </div>
+            </div>
+            <div class="bookmark_right"></div>
+          </div>
+          
+          <div class="bookmark verejnost">
+            <div class="bookmark_left"></div>
+            <div class="bookmark_middle">
+              Veřejnost<br />
+              <span>turisté</span>
+              
+              <div class="bookmark_content">
+                		<ul class="menu"><li class="item324"><a href="/web/20101111104352/http://www.ackcr.cz/z-domova/"><span>Z domova</span></a></li><li class="item325"><a href="/web/20101111104352/http://www.ackcr.cz/ze-zahranici/"><span>Ze zahraničí</span></a></li><li class="item326"><a href="/web/20101111104352/http://www.ackcr.cz/casto-kladene-otazky/"><span>Často kladené otázky</span></a></li><li class="item327"><a href="/web/20101111104352/http://www.ackcr.cz/pojistene-cestovni-kancelare"><span>Pojištěné CK</span></a></li></ul>                
+                <div class="bookmark_content_corners"></div>
+              </div>
+            </div>
+            <div class="bookmark_right"></div>
+          </div>
+          
+          <div class="bookmark asociace wide">
+            <div class="bookmark_left"></div>
+            <div class="bookmark_middle">
+              Asociace<br />
+              <span>informace</span>
+              
+              <div class="bookmark_content">
+                <div class="bookmark_leftcolumn">
+                    						<span class="h3">O asociaci</span>
+		<ul class="menu"><li class="item311"><a href="/web/20101111104352/http://www.ackcr.cz/kontakty/sekretariat"><span>Kontakty</span></a></li><li class="item312"><a href="/web/20101111104352/http://www.ackcr.cz/predstaveni-asociace"><span>Představení asociace</span></a></li><li class="item314"><a href="/web/20101111104352/http://www.ackcr.cz/struktura-asociace"><span>Struktura asociace</span></a></li><li class="item315"><a href="/web/20101111104352/http://www.ackcr.cz/stanovy-asociace"><span>Stanovy</span></a></li><li class="item316"><a href="/web/20101111104352/http://www.ackcr.cz/vyhody-clenstvi"><span>Výhody členství</span></a></li><li class="item317"><a href="/web/20101111104352/http://www.ackcr.cz/moralni-kodex-jednani-cestovni-kancelare"><span>Morální kodex</span></a></li><li class="item318"><a href="/web/20101111104352/http://www.ackcr.cz/podminky-clenstvi"><span>Podmínky členství</span></a></li><li class="item319"><a href="/web/20101111104352/http://www.ackcr.cz/spoluprace-s-nami"><span>Spolupráce s námi</span></a></li><li class="item320"><a href="/web/20101111104352/http://www.ackcr.cz/pravni-dolozka"><span>Právní doložka</span></a></li></ul>
+                </div>
+                
+                <div class="bookmark_rightcolumn">                  
+                    						<span class="h3">Členové</span>
+		<ul class="menu"><li id="current" class="active item332"><a href="/web/20101111104352/http://www.ackcr.cz/clenove"><span>Členové</span></a></li><li class="item334"><a href="/web/20101111104352/http://www.ackcr.cz/pridruzeni-clenove"><span>Přidruženi členové</span></a></li></ul>
+                </div>
+                
+                <div class="clear"></div>
+                <div class="bookmark_content_corners"></div>
+              </div>
+            </div>
+            <div class="bookmark_right"></div>
+          </div>
+           <div class="clear"></div>
+        </div><!-- /navigation -->
+                   
+      </div><!-- /header -->
+    </div><!-- /header_wrapper -->
+    
+          <div id="perex_wrapper">
+        <div id="perex">
+          <h1>Členové</h1>
+        </div>
+      </div>
+      <div id="main_wrapper">
+        <div id="main">
+          
+
+          <div class="banner">
+            <div class="ad">Reklama</div>
+<div class="bannergroup">
+
+  <div class="banneritem"><a href="/web/20101111104352/http://www.ackcr.cz/banners/kozel-2010" target="_blank"><img src="/web/20101111104352im_/http://www.ackcr.cz/images/banners/kozelbanner468x60.jpg" alt="Banner" /></a><div class="clr"></div>
+	</div>
+
+</div>
+          </div>
+         
+          <div id="content">
+            <h2>Počet nalezených záznamů: 191</h2>			<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/1_web.jpg" width="100" height="32" alt="Logo 101 Cestovní kancelář Zemek" />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/101-cestovni-kancelar-zemek/">101 Cestovní kancelář Zemek</a></h3>								<div class="adresa">				Mělnická 31, 250 01 Stará Boleslav<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/2_web.jpg" width="100" height="36" alt="Logo Active Travel" />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/active-travel/">Active Travel</a></h3>								<div class="adresa">				Nekázanka 9, 110 00 Praha 1<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/4_web.jpg" width="70" height="100" alt="Logo ADRIATIC CURATIO, s. r. o." />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/adriatic-curatio/">ADRIATIC CURATIO, s. r. o.</a></h3>								<div class="adresa">				Mírové nám.3d/519, 703 00 Ostrava<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/3_web.jpg" width="70" height="100" alt="Logo ADR International " />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/adr-international/">ADR International </a></h3>								<div class="adresa">				Šafaříkova 11, 120 00 Praha 2<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/226_web.jpg" width="100" height="31" alt="Logo Adventura s.r.o." />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/adventura-sro/">Adventura s.r.o.</a></h3>								<div class="adresa">				Voroněžská 20, 101 00 Praha 10<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/5_web.jpg" width="72" height="100" alt="Logo Agentura Carolina, spol. s r.o." />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/agentura-carolina/">Agentura Carolina, spol. s r.o.</a></h3>								<div class="adresa">				Albertov 3a/7, 128 01 Praha 2<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">													<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/agentura-madi/">AGENTURA  MADI</a></h3>								<div class="adresa">				Husitská 76/27, 130 00 Praha 3<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/129_web.jpg" width="100" height="46" alt="Logo AIR MARINE - ROLLPA Group s.r.o." />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/rollpa-travel-club/">AIR MARINE - ROLLPA Group s.r.o.</a></h3>								<div class="adresa">				Václavské nám.43, 110 00 Praha 1<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">													<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/air-travel-service/">Air Travel Service</a></h3>								<div class="adresa">				Bubenečská 35, 160 00 Praha 6<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">													<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/akvila-travel/">Akvila Travel</a></h3>								<div class="adresa">				Václavkova 1181/2a, 779 00 Olomouc<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">													<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/albatros-travel-and-expeditions-sro/">Albatros Travel and Expeditions s.r.o.</a></h3>								<div class="adresa">				Branišovská 941/54, 370 05  České Budějovice<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/9_web.jpg" width="100" height="40" alt="Logo Alex" />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/alex/">Alex</a></h3>								<div class="adresa">				Písnicka 2, 142 00 Praha 4<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/10_web.jpg" width="70" height="100" alt="Logo Alexandria" />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/alexandria/">Alexandria</a></h3>								<div class="adresa">				Vodičkova 25, 110 00 Praha 1<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/15_web.jpg" width="100" height="8" alt="Logo American Express" />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/american-express/">American Express</a></h3>								<div class="adresa">				Na Příkopě 19, Palác Myslbek, 110 00 Praha 1<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/14_web.jpg" width="100" height="36" alt="Logo America Tours" />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/america-tours/">America Tours</a></h3>								<div class="adresa">				Jánská 868/8, 460 01 Liberec<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/13_web.jpg" width="100" height="41" alt="Logo AmeriPrague" />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/ameriprague/">AmeriPrague</a></h3>								<div class="adresa">				28.pluku 14, 101 00 Praha 10<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/653_web.jpg" width="100" height="26" alt="Logo Amigo-Tours s.r.o" />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/amigo-tours-sro/">Amigo-Tours s.r.o</a></h3>								<div class="adresa">				Jugoslávská 2, 360 01 Karlovy Vary<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/16_web.jpg" width="100" height="46" alt="Logo ANCORA" />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/ancora/">ANCORA</a></h3>								<div class="adresa">				Fialova 12a, 787 01 Šumperk<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">													<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/aqua-tour/">Aqua Tour</a></h3>								<div class="adresa">				Prešovská 3, 301 11 Plzeň<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/578_web.jpg" width="100" height="57" alt="Logo ATIS" />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/atis/">ATIS</a></h3>								<div class="adresa">				Fügnerova 7, 792 01 Bruntál<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/19_web.jpg" width="100" height="42" alt="Logo Autoturist" />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/autoturist/">Autoturist</a></h3>								<div class="adresa">				Na Strži 9, 140 02 Praha 4<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/20_web.jpg" width="99" height="100" alt="Logo Avanti - česká cestovní agentura" />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/avanti-ceska-cestovni-agentura/">Avanti - česká cestovní agentura</a></h3>								<div class="adresa">				Lukášova 2, 130 00 Praha 3<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/602_web.jpg" width="100" height="44" alt="Logo AXXOS hotel & spa management s.r.o" />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/axxos-hotel-and-spa-management-sro/">AXXOS hotel &amp; spa management s.r.o</a></h3>								<div class="adresa">				Ke Golfu 111, 360 01 Karlovy Vary-Olšová Vrata<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/446_web.jpg" width="94" height="100" alt="Logo AZUR REIZEN, s.r.o." />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/azur-reizen-sro/">AZUR REIZEN, s.r.o.</a></h3>								<div class="adresa">				Revoluční 764/17, 110 00 Praha 1 - Staré Město<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/23_web.jpg" width="100" height="21" alt="Logo Bena Tour" />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/bena-tour/">Bena Tour</a></h3>								<div class="adresa">				Vodičkova 20, 110 00 Praha 1<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/24_web.jpg" width="66" height="100" alt="Logo Best Reisen CZ" />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/best-reisen-cz/">Best Reisen CZ</a></h3>								<div class="adresa">				Korunní 810/104budovaG, 101 00 Praha 10<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/25_web.jpg" width="100" height="64" alt="Logo Blue Sky Travel" />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/blue-sky-travel/">Blue Sky Travel</a></h3>								<div class="adresa">				Na Perštýně 1, 110 00 Praha 1<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/662_web.jpg" width="100" height="36" alt="Logo Blue Style cestovní kancelář" />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/blue-style-cestovni-kancelar/">Blue Style cestovní kancelář</a></h3>								<div class="adresa">				Karolinská 1, 186 00 Praha 8<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/898_web.jpg" width="70" height="100" alt="Logo BOHEMIA TRAVEL SYSTEM s.r.o." />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/bohemia-travel-system-sro/">BOHEMIA TRAVEL SYSTEM s.r.o.</a></h3>								<div class="adresa">				Perunova 1327/12, 130 00 Praha 3 Vinohrady<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/26_web.jpg" width="82" height="100" alt="Logo Bond Ltd. Travel Agency" />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/bond-ltd-travel-agency/">Bond Ltd. Travel Agency</a></h3>								<div class="adresa">				Michnova 1624/3, 149 00 Praha 4<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/651_web.jpg" width="100" height="19" alt="Logo BURDA - TOUR, s.r.o." />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/burda-tour-sro/">BURDA - TOUR, s.r.o.</a></h3>								<div class="adresa">				Nám. Osvobození 35, 331 41 Kralovice<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/28_web.jpg" width="100" height="50" alt="Logo BVV FAIR TRAVEL" />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/bvv-fair-travel/">BVV FAIR TRAVEL</a></h3>								<div class="adresa">				Výstaviště 1, 647 00 Brno<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/29_web.jpg" width="100" height="45" alt="Logo CA Jupiter" />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/ca-jupiter/">CA Jupiter</a></h3>								<div class="adresa">				Královopolská 8, 616 00 Brno<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/30_web.jpg" width="100" height="22" alt="Logo Calypso Prague" />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/calypso-prague/">Calypso Prague</a></h3>								<div class="adresa">				Vladivostocká 10, 100 00 Praha 10<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/31_web.jpg" width="100" height="35" alt="Logo Canaria Travel" />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/canaria-travel/">Canaria Travel</a></h3>								<div class="adresa">				Jungmannova 7, 110 00 Praha 1<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/32_web.jpg" width="70" height="100" alt="Logo Caribe Internacional" />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/caribe-internacional/">Caribe Internacional</a></h3>								<div class="adresa">				V Holešovičkách 7/1400, 180 00 Praha 8<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/33_web.jpg" width="100" height="41" alt="Logo CARIBE Tour" />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/caribe-tour/">CARIBE Tour</a></h3>								<div class="adresa">				Týnská 21, 110 00 Praha 1<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/34_web.jpg" width="100" height="84" alt="Logo Carlson Wagonlit Travel" />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/carlson-wagonlit-travel/">Carlson Wagonlit Travel</a></h3>								<div class="adresa">				Americká 41, 120 00 Praha 2<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">													<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/cas-znojmo/">ČAS Znojmo</a></h3>								<div class="adresa">				Dobšická 2, 669 02 Znojmo<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">													<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/cd-travel/">ČD Travel</a></h3>								<div class="adresa">				Na příkopě 988/31, 110 00 Praha 1<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/53_web.jpg" width="88" height="100" alt="Logo Čedok " />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/cedok/">Čedok </a></h3>								<div class="adresa">				Na Příkopě l8, 111 35 Praha 1<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/54_web.jpg" width="100" height="46" alt="Logo Českobrodská CK, s.r.o." />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/ceskobrodska-ck-sro/">Českobrodská CK, s.r.o.</a></h3>								<div class="adresa">				nám.Arnošta z Pardubic 46, 282 01 Český Brod<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">													<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/cesta-travel-agency-sro/">CESTA Travel Agency, s.r.o.</a></h3>								<div class="adresa">				Legerova 432, 280 02 Kolín III<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/219_web.jpg" width="71" height="87" alt="Logo Cestovní kancelář GOLEM" />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/cestovni-kancelar-golem/">Cestovní kancelář GOLEM</a></h3>								<div class="adresa">				U Landronky 21/1339, 169 00 Praha 6<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/38_web.jpg" width="100" height="18" alt="Logo Cestovní kancelář PRESSBURG" />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/cestovni-kancelar-pressburg/">Cestovní kancelář PRESSBURG</a></h3>								<div class="adresa">				Třída Svobody 20, 772 00 Olomouc<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/35_web.jpg" width="100" height="94" alt="Logo Cestovní kancelář Ruefa Reisen" />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/cestovni-kancelar-ruefa-reisen/">Cestovní kancelář Ruefa Reisen</a></h3>								<div class="adresa">				Revoluční 10, 110 00 Praha 1<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/36_web.jpg" width="100" height="53" alt="Logo China Tours" />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/china-tours/">China Tours</a></h3>								<div class="adresa">				Vítězné nám. 2, 160 00 Praha 6<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">													<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/ciao-cestovni-kancelar-sro/">Ciao..., cestovní kancelář, s.r.o</a></h3>								<div class="adresa">				Zámek 1, 386 01 Strakonice<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/37_web.jpg" width="100" height="28" alt="Logo CK Betty Tours" />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/ck-betty-tours/">CK Betty Tours</a></h3>								<div class="adresa">				Vratislavská 391, 181 00 Praha 8<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/41_web.jpg" width="100" height="27" alt="Logo CK Company Diamond Wind" />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/ck-company-diamond-wind/">CK Company Diamond Wind</a></h3>								<div class="adresa">				Jilská 16, 110 00 Praha 1<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">													<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/ck-csad-havirov/">CK ČSAD Havířov</a></h3>								<div class="adresa">				Těšínská 1297, 736 01 Havířov-Podlesí<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/589_web.jpg" width="100" height="27" alt="Logo CK  LEVANTE-Jana Koderová" />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/ck-levante-jana-koderova/">CK  LEVANTE-Jana Koderová</a></h3>								<div class="adresa">				R.Svobodové 817, 399 01 Milevsko<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/138_web.jpg" width="100" height="32" alt="Logo CK Stella" />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/stella/">CK Stella</a></h3>								<div class="adresa">				Ocelářská 35, 190 00 Praha 9<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/434_web.jpg" width="100" height="100" alt="Logo CK UNITOUR s.r.o." />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/ck-unitour-sro/">CK UNITOUR s.r.o.</a></h3>								<div class="adresa">				Bílinská 1, 40001 Ústí nad Labem<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/42_web.jpg" width="100" height="100" alt="Logo Congress Business Travel" />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/congress-business-travel/">Congress Business Travel</a></h3>								<div class="adresa">				Lidická 43/66, 150 00 Praha 5<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/72_web.jpg" width="100" height="35" alt="Logo CONNEA TRAVEL, s.r.o." />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/connea-travel-sro/">CONNEA TRAVEL, s.r.o.</a></h3>								<div class="adresa">				Opletalova 1284/37, 110 00 Praha 1<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">													<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/conti/">Conti</a></h3>								<div class="adresa">				Jindřišská 30, 110 00 Praha 1<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/44_web.jpg" width="100" height="36" alt="Logo CONTI PROMOTOR CONFERENCE INCENTIVE spol s r.o." />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/conti-promotor/">CONTI PROMOTOR CONFERENCE INCENTIVE spol s r.o.</a></h3>								<div class="adresa">				Smetanovo nábřeží 197/26, 110 00 Praha 1<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/56_web.jpg" width="100" height="78" alt="Logo ČSAD Tišnov" />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/csad-tisnov/">ČSAD Tišnov</a></h3>								<div class="adresa">				Červený mlýn 1538, 666 01 Tišnov 1<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">													<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/ctb/">CTB</a></h3>								<div class="adresa">				Nedvězská 2236/28, 100 00 Praha 10<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/48_web.jpg" width="100" height="14" alt="Logo Czech Holidays" />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/czech-holidays/">Czech Holidays</a></h3>								<div class="adresa">				Národní 28, 110 00 Praha 1<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">													<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/czech-tour/">Czech-Tour</a></h3>								<div class="adresa">				Plevenská 3112/3, 143 00 Praha 4<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">													<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/daen-international/">Daen International</a></h3>								<div class="adresa">				Bezručova 1, 301 13 Plzeň<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">													<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/dany-travel/">Dany Travel</a></h3>								<div class="adresa">				Na Volánové 20, 160 00 Praha 6<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/60_web.jpg" width="100" height="23" alt="Logo DC Service" />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/dc-service/">DC Service</a></h3>								<div class="adresa">				Břehová 3, 110 00 Praha 1<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/62_web.jpg" width="100" height="33" alt="Logo Dionis Praha" />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/dionis-praha/">Dionis Praha</a></h3>								<div class="adresa">				Ovenecká 33, 170 00 Praha 7<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/57_web.jpg" width="89" height="100" alt="Logo D.I.R. Bohemia" />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/dir-bohemia/">D.I.R. Bohemia</a></h3>								<div class="adresa">				Za zahradou 1, 162 00 Praha 6<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">													<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/dovolenacz-sro/">Dovolená.cz s.r.o.</a></h3>								<div class="adresa">				Krakovská 1366/25, 110 00 Praha 1<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/640_web.jpg" width="70" height="100" alt="Logo Dutch Masters s.r.o." />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/dutch-masters-sro/">Dutch Masters s.r.o.</a></h3>								<div class="adresa">				Golčova 1/2, Tvrz Kunratice, 148 00 Praha 4<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/64_web.jpg" width="100" height="34" alt="Logo Dynamic Tour" />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/dynamic-tour/">Dynamic Tour</a></h3>								<div class="adresa">				Jílovská 1151, 142 00 Praha 4<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">													<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/eip-travel/">E.I.P. Travel</a></h3>								<div class="adresa">				Soukenická 24, 110 00 Praha l<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/67_web.jpg" width="100" height="29" alt="Logo EMMA Agency" />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/emma-agency/">EMMA Agency</a></h3>								<div class="adresa">				Kozí 10, 660 78 Brno<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/601_web.jpg" width="100" height="43" alt="Logo EMPIRE SPA TRAVEL s.r.o" />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/empire-spa-travel-sro/">EMPIRE SPA TRAVEL s.r.o</a></h3>								<div class="adresa">				Karla Čapka 1327/8, 360 01 Karlovy Vary<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/66_web.jpg" width="100" height="11" alt="Logo E.P.Travel s.r.o." />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/eptravel/">E.P.Travel s.r.o.</a></h3>								<div class="adresa">				Pod Šmukýřkou 10, 150 00 Praha 5<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/69_web.jpg" width="100" height="48" alt="Logo ESO travel a.s." />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/eso-travel/">ESO travel a.s.</a></h3>								<div class="adresa">				Korunovační 22, 170 00 Praha 7<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/70_web.jpg" width="100" height="46" alt="Logo ESTEC - CZECH INCOMING TOUR OPERATOR" />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/estec-czech-incoming-tour-operator/">ESTEC - CZECH INCOMING TOUR OPERATOR</a></h3>								<div class="adresa">				Vaníčkova 5/1, 169 00 Praha 6<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/590_web.jpg" width="100" height="65" alt="Logo E-TRAVEL.CZ" />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/e-travelcz/">E-TRAVEL.CZ</a></h3>								<div class="adresa">				Divadelní 24, 110 00 Praha 1<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/71_web.jpg" width="100" height="60" alt="Logo EuroAgentur Hotels & Travel, a.s." />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/euroagentur-hotels-and-travel/">EuroAgentur Hotels &amp; Travel, a.s.</a></h3>								<div class="adresa">				K Horkám 23, 102 00 Praha 10<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">													<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/eurorama/">Eurorama</a></h3>								<div class="adresa">				U průhonu 5, 170 00 Praha 7<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/74_web.jpg" width="64" height="41" alt="Logo Excalibur Tours Praha" />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/excalibur-tours-praha/">Excalibur Tours Praha</a></h3>								<div class="adresa">				pplk.Sochora 37, 170 00 Praha 7<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/75_web.jpg" width="100" height="28" alt="Logo Exim Tours" />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/exim-tours/">Exim Tours</a></h3>								<div class="adresa">				Revoluční 23, 110 00 Praha 1<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/633_web.jpg" width="100" height="27" alt="Logo EXPECTA, s.r.o." />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/expecta-sro/">EXPECTA, s.r.o.</a></h3>								<div class="adresa">				Nám.Míru 63, 760 01 Zlín<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/77_web.jpg" width="100" height="65" alt="Logo FIRO-tour a.s." />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/firo-tour-as/">FIRO-tour a.s.</a></h3>								<div class="adresa">				Nám. 1.máje 94, 430 01 Chomutov<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">													<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/freizeitland-tour-sro/">FREIZEITLAND-TOUR, s.r.o.</a></h3>								<div class="adresa">				Zdaru 1086/3, 140 00 PRAHA 4<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/79_web.jpg" width="100" height="27" alt="Logo Geos" />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/geos/">Geos</a></h3>								<div class="adresa">				Sokolovská 42, 186 00 Praha 8<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">													<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/golding-travel-sro/">GOLDING  TRAVEL s.r.o.</a></h3>								<div class="adresa">				Na Zderaze 1275/15, 120 00 Praha 2<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/249_web.jpg" width="100" height="37" alt="Logo Golf Planet s.r.o." />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/golf-planet-sro/">Golf Planet s.r.o.</a></h3>								<div class="adresa">				Krakovská 1392/7, 110 00 Praha 1, Nové Město<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/81_web.jpg" width="100" height="36" alt="Logo Greece Tours Prague" />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/greece-tours-prague/">Greece Tours Prague</a></h3>								<div class="adresa">				Dlouhá 3, 110 00 Praha 1<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">													<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/greenways-travel-club-sro/">Greenways Travel Club, s.r.o.</a></h3>								<div class="adresa">				Náměstí 24/27, 692 01 Mikulov<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/82_web.jpg" width="100" height="15" alt="Logo GTS Incoming s.r.o." />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/gts-incoming-sro/">GTS Incoming s.r.o.</a></h3>								<div class="adresa">				Sokolovská 198/207, 190 00 Praha 9<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/84_web.jpg" width="100" height="66" alt="Logo Hana Tours Praha s.r.o." />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/hana-tours-praha/">Hana Tours Praha s.r.o.</a></h3>								<div class="adresa">				Michelská 55, 141 00 Praha 4<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/85_web.jpg" width="100" height="18" alt="Logo HANSEATIC CK HAD" />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/hanseatic-ck-had/">HANSEATIC CK HAD</a></h3>								<div class="adresa">				Vršovická 9, 101 00 Praha 10<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/18_web.jpg" width="100" height="64" alt="Logo HELENA JUNGMANOVÁ - TRAVEL AGENCY ASTRA s.r.o." />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/astra/">HELENA JUNGMANOVÁ - TRAVEL AGENCY ASTRA s.r.o.</a></h3>								<div class="adresa">				Lázeňská 5, 360 01 Karlovy Vary<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/83_web.jpg" width="100" height="71" alt="Logo H & Hotels Inc." />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/h-and-hotels-inc/">H &amp; Hotels Inc.</a></h3>								<div class="adresa">				Václavské nám.7, 110 00 Praha 1<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/55_web.jpg" width="100" height="19" alt="Logo HOLIDAYS Czech Airlines, a.s." />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/holidays-czech-airlines-as/">HOLIDAYS Czech Airlines, a.s.</a></h3>								<div class="adresa">				Jana Kašpara 1069, 160 08 Praha 6<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">													<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/horizont/">Horizont</a></h3>								<div class="adresa">				Kamenice 91, 547 01 Náchod<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">													<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/ideal-tour-praha/">Ideal-Tour Praha</a></h3>								<div class="adresa">				Freyova 5, 190 00 Praha 9<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/90_web.jpg" width="38" height="100" alt="Logo IFB Bohemia" />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/ifb-bohemia/">IFB Bohemia</a></h3>								<div class="adresa">				Nám.Míru 15, 120 00 Praha 2<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/91_web.jpg" width="100" height="63" alt="Logo Incentive Travel" />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/incentive-travel/">Incentive Travel</a></h3>								<div class="adresa">				Pod vodojemem 271, 149 00 Praha 4<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/92_web.jpg" width="100" height="31" alt="Logo IncoCzech Travel Prague" />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/incoczech-travel-prague/">IncoCzech Travel Prague</a></h3>								<div class="adresa">				Gregorova 2115/10, 148 00 Praha 4<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/577_web.jpg" width="100" height="60" alt="Logo INETTRAVEL s.r.o." />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/inettravel-sro/">INETTRAVEL s.r.o.</a></h3>								<div class="adresa">				Prvomájová 90, 322 00 Plzeň<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/650_web.jpg" width="100" height="70" alt="Logo Ing. Lukáš Třešňák - Cestovní agentura CHERRY" />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/ing-lukas-tresnak-cestovni-agentura-cherry/">Ing. Lukáš Třešňák - Cestovní agentura CHERRY</a></h3>								<div class="adresa">				28. října 209/433, 709 00 Ostrava-Mariánské Hory<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/635_web.jpg" width="100" height="52" alt="Logo Ing. Pavel Petraš - super-last-minute.cz" />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/ing-pavel-petras-super-last-minutecz/">Ing. Pavel Petraš - super-last-minute.cz</a></h3>								<div class="adresa">				Nový Svět 1419, Ústí nad Orlicí 562 01<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/94_web.jpg" width="100" height="100" alt="Logo Ingtours" />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/ingtours/">Ingtours</a></h3>								<div class="adresa">				Krkonošská 14, 543 01 Vrchlabí<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/568_web.jpg" width="100" height="51" alt="Logo INSPIRA, s.r.o." />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/inspira-sro/">INSPIRA, s.r.o.</a></h3>								<div class="adresa">				Hvožďanská 3, 148 00 Praha 4<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/95_web.jpg" width="100" height="34" alt="Logo Interacta Travel s.r.o." />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/interacta/">Interacta Travel s.r.o.</a></h3>								<div class="adresa">				Gagarinova 475/36, 165 00 Praha 6<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/97_web.jpg" width="100" height="75" alt="Logo ITBC - European Tour Operator " />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/itbc-european-tour-operator/">ITBC - European Tour Operator </a></h3>								<div class="adresa">				Antala Staška 34, 143 00 Praha 4<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/582_web.jpg" width="100" height="43" alt="Logo ITS BILLA TRAVEL s.r.o." />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/its-billa-travel-sro/">ITS BILLA TRAVEL s.r.o.</a></h3>								<div class="adresa">				Modletice 67, 251 01 Říčany u Prahy<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/98_web.jpg" width="100" height="25" alt="Logo James Cook" />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/james-cook/">James Cook</a></h3>								<div class="adresa">				Sokolská 35, 120 00 Praha 2<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/99_web.jpg" width="92" height="24" alt="Logo Jarotour" />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/jarotour/">Jarotour</a></h3>								<div class="adresa">				nám. Svobody 42, 438 01 Žatec<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/100_web.jpg" width="100" height="26" alt="Logo Jason Travel" />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/jason-travel/">Jason Travel</a></h3>								<div class="adresa">				Chelčického 13, 130 00 Praha 3<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">													<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/jeseniatour/">Jeseniatour</a></h3>								<div class="adresa">				Komenského 2, 787 01 Šumperk<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">													<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/jitka-koskova-niktour/">Jitka Košková - NIKTOUR</a></h3>								<div class="adresa">				Ústecká 1905/8, 405 02 Děčín<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/103_web.jpg" width="100" height="26" alt="Logo Jomys, Tourist Centrum, s.r.o" />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/jomys-tourist-centrum/">Jomys, Tourist Centrum, s.r.o</a></h3>								<div class="adresa">				Na Moráni 5, 128 00 Praha 2<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">													<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/keg-sro/">KEG, s.r.o.</a></h3>								<div class="adresa">				Jindřišská 900/7, 110 00 Praha 1<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/104_web.jpg" width="100" height="26" alt="Logo Kompas Praha" />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/kompas-praha/">Kompas Praha</a></h3>								<div class="adresa">				Rytířská 26, 110 00 Praha 1<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">													<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/kovarik-incoming-tours/">Kovařík Incoming Tours</a></h3>								<div class="adresa">				Sokolovská 268, 190 00 Praha 9<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/232_web.jpg" width="100" height="70" alt="Logo KOVOTOUR PLUS s.r.o." />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/kovotour-plus-sro/">KOVOTOUR PLUS s.r.o.</a></h3>								<div class="adresa">				Přívozská 12, 702 00 OSTRAVA<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/106_web.jpg" width="100" height="44" alt="Logo La Boheme" />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/la-boheme/">La Boheme</a></h3>								<div class="adresa">				Závěrka 4/412, 169 00 Praha 6<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/107_web.jpg" width="100" height="78" alt="Logo Last Minute Centrum" />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/last-minute-centrum/">Last Minute Centrum</a></h3>								<div class="adresa">				Náměstí Svobody 21, 602 00 Brno<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/109_web.jpg" width="78" height="100" alt="Logo LINGUA TOUR" />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/lingua-tour/">LINGUA TOUR</a></h3>								<div class="adresa">				Husovo nám.78, 266 01 Beroun 1<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/638_web.jpg" width="72" height="100" alt="Logo Ludmila Šakićová - CK JADRAN" />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/ludmila-saki-ova-ck-jadran/">Ludmila Šakićová - CK JADRAN</a></h3>								<div class="adresa">				Prvomájová 90, 322 00 Plzeň 5 Křimice<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/215_web.jpg" width="100" height="29" alt="Logo Ludmila Tvrdoňová - cestovní kancelář TILIA" />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/ludmila-tvrdonova-cestovni-kancelar-tilia/">Ludmila Tvrdoňová - cestovní kancelář TILIA</a></h3>								<div class="adresa">				Poštovská 4h,pasáž Alfa, 602 00 BRNO<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/111_web.jpg" width="100" height="36" alt="Logo Marco Polo International" />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/marco-polo-international/">Marco Polo International</a></h3>								<div class="adresa">				Petrská 23, 110 00 Praha 1<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/112_web.jpg" width="100" height="18" alt="Logo Martin Tour Praha" />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/martin-tour-praha/">Martin Tour Praha</a></h3>								<div class="adresa">				Štěpánská 61, 110 00 Praha 1<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/113_web.jpg" width="100" height="20" alt="Logo Maximatour" />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/maximatour/">Maximatour</a></h3>								<div class="adresa">				Opletalova 27, 110 00 Praha l<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/114_web.jpg" width="100" height="21" alt="Logo Maxin Prague s.r.o." />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/maxin-prague-sro/">Maxin Prague s.r.o.</a></h3>								<div class="adresa">				Vinohradská 25, 120 00 Praha 2<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/194_web.jpg" width="100" height="32" alt="Logo MICHAEL Travel s.r.o." />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/michael-travel-sro/">MICHAEL Travel s.r.o.</a></h3>								<div class="adresa">				Záběhlická 133/35, 106 00 Praha 10<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/115_web.jpg" width="100" height="28" alt="Logo Motiv Prague" />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/motiv-prague/">Motiv Prague</a></h3>								<div class="adresa">				Šafaříkova 635/24, 120 00 Praha 2<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/110_web.jpg" width="100" height="54" alt="Logo m'plus travel, a.s." />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/m-plus-travel-as/">m'plus travel, a.s.</a></h3>								<div class="adresa">				Masarykova 57, 401 06 Ústí nad Labem<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">													<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/natour/">Natour</a></h3>								<div class="adresa">				Rooseveltova 6/8, 602 00 Brno<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/214_web.jpg" width="100" height="84" alt="Logo NATUR TRAVEL s.r.o." />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/natur-travel-sro/">NATUR TRAVEL s.r.o.</a></h3>								<div class="adresa">				P.O.BOX 7, Nádražní 1, 150 05 Praha 5<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/197_web.jpg" width="100" height="100" alt="Logo Neckermann Cestovní kancelář s.r.o." />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/thomas-cook-sro/">Neckermann Cestovní kancelář s.r.o.</a></h3>								<div class="adresa">				Spálená 8, 110 00 Praha 1<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/427_web.jpg" width="100" height="30" alt="Logo Net Travel Service Czech s.r.o." />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/net-travel-service-czech-sro/">Net Travel Service Czech s.r.o.</a></h3>								<div class="adresa">				Sokolovská 100/94, 180 00 Praha 8, Karlín<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/118_web.jpg" width="100" height="34" alt="Logo OK-Tours" />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/ok-tours/">OK-Tours</a></h3>								<div class="adresa">				Jana Masaryka 39, 120 00 Praha 2<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">													<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/orbis-link-sro/">ORBIS LINK, s.r.o.</a></h3>								<div class="adresa">				Hradešínská 2144/47, 101 00 Praha 10 - Vinohrady<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/120_web.jpg" width="100" height="26" alt="Logo Otus s.r.o." />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/otus/">Otus s.r.o.</a></h3>								<div class="adresa">				Legerova 36, 120 00 Praha 2<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/630_web.jpg" width="100" height="57" alt="Logo PARADISO, s.r.o." />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/paradiso-sro/">PARADISO, s.r.o.</a></h3>								<div class="adresa">				Panská 6, 602 00 Brno<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/606_web.jpg" width="100" height="33" alt="Logo PEŘEJ tours s.r.o." />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/perej-tours-sro/">PEŘEJ tours s.r.o.</a></h3>								<div class="adresa">				tř.Svobody 43/39, 779 00 Olomouc<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/121_web.jpg" width="100" height="27" alt="Logo Polarex" />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/polarex/">Polarex</a></h3>								<div class="adresa">				Na Václavce 35, 150 00 Praha 5<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/596_web.jpg" width="100" height="27" alt="Logo Pradok spol. s r.o." />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/pradok-spol-s-ro/">Pradok spol. s r.o.</a></h3>								<div class="adresa">				Zborovská 6, 150 00 Praha 5<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">													<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/praga-international-tours/">Praga International Tours</a></h3>								<div class="adresa">				Na Dolinách 34, 147 00 Praha 4<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/123_web.jpg" width="100" height="35" alt="Logo Pragint Incoming Travel Agency" />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/pragint/">Pragint Incoming Travel Agency</a></h3>								<div class="adresa">				Prokopova 9, 130 00 Praha 3<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/599_web.jpg" width="100" height="21" alt="Logo Prague Inspiration, s.r.o." />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/prague-inspiration-sro/">Prague Inspiration, s.r.o.</a></h3>								<div class="adresa">				Senovážné náměstí 978/23, 110 00 Praha 1<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/124_web.jpg" width="100" height="79" alt="Logo Prague International" />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/prague-international/">Prague International</a></h3>								<div class="adresa">				Senovážné nám. 23, 110 00 Praha 1<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/125_web.jpg" width="100" height="14" alt="Logo PRAŽSKÝ KLUB TOUR OPERATOR, s.r.o." />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/prazsky-klub-tour-operator-sro/">PRAŽSKÝ KLUB TOUR OPERATOR, s.r.o.</a></h3>								<div class="adresa">				Drahobejlova 6, 190 00 Praha 9<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/570_web.jpg" width="100" height="44" alt="Logo Radka Šormová, CA lastiky.cz" />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/radka-sormova-ca-lastikycz/">Radka Šormová, CA lastiky.cz</a></h3>								<div class="adresa">				Darwinova 9, 143 00 Praha 4<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/663_web.jpg" width="100" height="25" alt="Logo RADYNACESTU.CZ" />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/martin-simek/">RADYNACESTU.CZ</a></h3>								<div class="adresa">				Hradní 27/37, 710 00 Ostrava<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/801_web.jpg" width="100" height="54" alt="Logo REA STYLE, s.r.o." />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/rea-style-sro/">REA STYLE, s.r.o.</a></h3>								<div class="adresa">				Hybernská 1000/8, 110 00 Praha 1<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/127_web.jpg" width="100" height="42" alt="Logo Régio" />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/regio/">Régio</a></h3>								<div class="adresa">				Palackého 205/6, 697 01 Kyjov<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/128_web.jpg" width="100" height="70" alt="Logo RI-Tours" />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/ri-tours/">RI-Tours</a></h3>								<div class="adresa">				Bořivojova 54, 130 00 Praha 3<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/639_web.jpg" width="100" height="30" alt="Logo RIVIERA TOUR s.r.o." />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/riviera-tour-sro/">RIVIERA TOUR s.r.o.</a></h3>								<div class="adresa">				Lidečko 31, 756 12 Horní Lideč<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/598_web.jpg" width="100" height="31" alt="Logo RoyalMedGroup-CZ spol. s r.o." />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/royalmedgroup-cz-spol-s-ro/">RoyalMedGroup-CZ spol. s r.o.</a></h3>								<div class="adresa">				Za Hájem 39, 362 11 Jenišov - Karlovy Vary<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/646_web.jpg" width="100" height="70" alt="Logo SALVE tour" />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/salve-tour/">SALVE tour</a></h3>								<div class="adresa">				Balbínova 30, 120 00 Praha 2<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/131_web.jpg" width="68" height="100" alt="Logo Sardegna Travel" />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/sardegna-travel/">Sardegna Travel</a></h3>								<div class="adresa">				Slovenská 1/967, 120 00 Praha 2<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">													<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/scantravel/">Scantravel</a></h3>								<div class="adresa">				Drtinova 17, 150 00 Praha 5 Smíchov<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/224_web.jpg" width="100" height="27" alt="Logo Senator Travel s.r.o." />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/senator-travel-sro/">Senator Travel s.r.o.</a></h3>								<div class="adresa">				Korunní  810/104, budova D, 101 00 Praha 10 - Vinohrady<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/134_web.jpg" width="100" height="56" alt="Logo SHENKOS" />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/shenkos/">SHENKOS</a></h3>								<div class="adresa">				Litovelská 117/6, 779 00 Olomouc<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/135_web.jpg" width="100" height="26" alt="Logo Siam Travel" />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/siam-travel/">Siam Travel</a></h3>								<div class="adresa">				Myslíkova 12, 120 00 Praha 2<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/136_web.jpg" width="100" height="48" alt="Logo Sport-S " />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/sport-s/">Sport-S </a></h3>								<div class="adresa">				Blatenská 113, 430 03 Chomutov<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/887_web.jpg" width="100" height="50" alt="Logo STUDENT AGENCY, s.r.o. " />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/student-agency-sro/">STUDENT AGENCY, s.r.o. </a></h3>								<div class="adresa">				Náměstí Svobody 86/17, 602 00 Brno-střed, Brno-město<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/604_web.jpg" width="100" height="89" alt="Logo Sunset Travel s.r.o." />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/sunset-travel-sro/">Sunset Travel s.r.o.</a></h3>								<div class="adresa">				Skupova 24, 301 00 Plzeň<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">													<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/tbs/">TBS</a></h3>								<div class="adresa">				Koubkova 13, 120 00 Praha 2<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/141_web.jpg" width="100" height="84" alt="Logo Team Travel Prague, s.r.o." />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/team-travel-prague/">Team Travel Prague, s.r.o.</a></h3>								<div class="adresa">				Hradešínská 22, 101 00 Praha 10<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">													<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/tempo-tours/">Tempo Tours</a></h3>								<div class="adresa">				Nám. svobody 6, 342 01 Sušice<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">													<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/tempo-tours-praha-sro/">Tempo Tours Praha s.r.o.</a></h3>								<div class="adresa">				Elišky Peškové 749/13, 150 00 Praha 5<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">													<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/teris/">Teris</a></h3>								<div class="adresa">				Francouzská 299/98, 101 00 Praha 10<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/584_web.jpg" width="100" height="65" alt="Logo TERMA TRAVEL CZ, s.r.o." />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/terma-travel-cz-sro/">TERMA TRAVEL CZ, s.r.o.</a></h3>								<div class="adresa">				Národní 138/10, 110 00 Praha 1<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/145_web.jpg" width="100" height="46" alt="Logo Tipatour zájezdy" />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/tipatour-zajezdy/">Tipatour zájezdy</a></h3>								<div class="adresa">				Rubešova 5, 120 00 Praha 2<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/144_web.jpg" width="100" height="65" alt="Logo Tip Top  Art and Travel Agency" />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/tip-top-art-and-travel-agency/">Tip Top  Art and Travel Agency</a></h3>								<div class="adresa">				Dohalická 952, 190 14 Praha 9<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/146_web.jpg" width="100" height="23" alt="Logo TOPTOUR, s.r.o" />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/toptour/">TOPTOUR, s.r.o</a></h3>								<div class="adresa">				Revoluční 24, 110 00 Praha 1<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/218_web.jpg" width="100" height="100" alt="Logo TOURISTSERVICE LIBEREC" />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/tourist-service-liberec/">TOURISTSERVICE LIBEREC</a></h3>								<div class="adresa">				Jeronýmova 24/62, 460 07 Liberec<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/636_web.jpg" width="100" height="16" alt="Logo Travel America s.r.o." />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/travel-america-sro/">Travel America s.r.o.</a></h3>								<div class="adresa">				Bezručova 742, 739 21 Paskov<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">													<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/travelland-cz-sro/">TRAVELLAND CZ, s.r.o.</a></h3>								<div class="adresa">				Senovážné náměstí 978/23, 110 00 Praha 1 Nové Město<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/147_web.jpg" width="100" height="42" alt="Logo Ulysses T.R.U.S.T. Prague" />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/ulysses-trust-prague/">Ulysses T.R.U.S.T. Prague</a></h3>								<div class="adresa">				Jeruzalémská 10, 110 00 Praha 1<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/521_web.jpg" width="100" height="61" alt="Logo UNITRAVEL GROUP, s.r.o." />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/unitravel-group-sro/">UNITRAVEL GROUP, s.r.o.</a></h3>								<div class="adresa">				Zbraslavská 37/1, 159 00 Praha-Chuchle<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">													<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/vedi-tourgroup-sro/">VEDI TOURGROUP s.r.o.</a></h3>								<div class="adresa">				Tržiště 41, 360 01 Karlovy Vary<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/149_web.jpg" width="100" height="67" alt="Logo Venus Trade and Tours" />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/venus-trade-and-tours/">Venus Trade and Tours</a></h3>								<div class="adresa">				Ječná 10, 120 00 Praha 2<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/150_web.jpg" width="100" height="39" alt="Logo Verner Tour" />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/verner-tour/">Verner Tour</a></h3>								<div class="adresa">				Karla Engliše 3, 150 00 Praha 5<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/637_web.jpg" width="100" height="54" alt="Logo VIA VERA s.r.o." />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/via-vera-sro/">VIA VERA s.r.o.</a></h3>								<div class="adresa">				Tř. 1.máje 10, 460 01 Liberec<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/256_web.jpg" width="100" height="59" alt="Logo VIENNA INTERNATIONAL Travel Management s.r.o." />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/vienna-international-travel-management-sro/">VIENNA INTERNATIONAL Travel Management s.r.o.</a></h3>								<div class="adresa">				Evropská 15, 160 41 Praha 6<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/151_web.jpg" width="100" height="70" alt="Logo VÍTKOVICE TOURS" />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/vitkovice-tours/">VÍTKOVICE TOURS</a></h3>								<div class="adresa">				Mírové nám. 3d/519, 703 00 Ostrava 3<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/152_web.jpg" width="100" height="25" alt="Logo Volareza" />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/volareza/">Volareza</a></h3>								<div class="adresa">				Magnitogorská 12/1494, 101 00 Praha 10<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/875_web.jpg" width="100" height="21" alt="Logo Weco - Travel s.r.o." />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/weco-travel-sro/">Weco - Travel s.r.o.</a></h3>								<div class="adresa">				Thámova 13, 186 00 Praha 8<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/154_web.jpg" width="100" height="26" alt="Logo Welcome Touristic Praha" />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/welcome-touristic-praha/">Welcome Touristic Praha</a></h3>								<div class="adresa">				Klimentská 52, 110 15 Praha 1<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/634_web.jpg" width="100" height="40" alt="Logo WeREco, s.r.o." />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/wereco-sro/">WeREco, s.r.o.</a></h3>								<div class="adresa">				Hájecká 174, 273 51 Červený  Újezd<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/155_web.jpg" width="100" height="45" alt="Logo WICOMT" />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/wicomt/">WICOMT</a></h3>								<div class="adresa">				Milady Horákové 62, 170 00 Praha 7<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/156_web.jpg" width="90" height="100" alt="Logo Wolff Travel Praha" />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/wolff-travel-praha/">Wolff Travel Praha</a></h3>								<div class="adresa">				Havlíčkova 15, 110 00 Praha 1<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/242_web.jpg" width="100" height="29" alt="Logo World Media Partners, s.r.o." />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/world-media-partners-sro/">World Media Partners, s.r.o.</a></h3>								<div class="adresa">				U stadionu 6, 568 02 Svitavy<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">				<img src="/web/20101111104352im_/http://www.ackcr.cz/images/loga/900_web.jpg" width="100" height="34" alt="Logo YachtNet s.r.o." />									<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/yachtnet-sro/">YachtNet s.r.o.</a></h3>								<div class="adresa">				Brdlíkova 288/1e, 150 00 Praha 5<br />								</div>				<div style="clear: both;"></div>							</div>					<div class="clen">													<h3><a href="/web/20101111104352/http://www.ackcr.cz/clenove/zajezdycz/">Zájezdy.cz</a></h3>								<div class="adresa">				Kubišova 1230, 674 01 Třebíč<br />								</div>				<div style="clear: both;"></div>							</div>		  
+             <div class="clear"></div>
+          </div>
+          
+          <div class="banner">
+            <div class="ad">Reklama</div>
+<div class="bannergroup">
+
+  <div class="banneritem"><a href="/web/20101111104352/http://www.ackcr.cz/banners/cot-predplatne-2010" target="_blank"><img src="/web/20101111104352im_/http://www.ackcr.cz/images/banners/banner-cot-predplatne2010.gif" alt="Banner" /></a><div class="clr"></div>
+	</div>
+
+</div>
+          </div>
+        </div><!-- /main -->
+      </div><!-- /main_wrapper -->
+        <div id="panel_right_wrapper01">
+      <div id="panel_right_wrapper02">
+        <div id="panel_right">         
+          
+                  <div class="box newsbox">
+                        <h2>Aktuality</h2>
+        <ul class="latestnewsnewsbox">
+	<li class="latestnewsnewsbox">
+		<a href="/web/20101111104352/http://www.ackcr.cz/volne-vzdelavaci-programy/kurz-pracovnik-cestovni-kancelare-3" class="latestnewsnewsbox">
+			Kurz Pracovník cestovní kanceláře</a>
+	</li>
+	<li class="latestnewsnewsbox">
+		<a href="/web/20101111104352/http://www.ackcr.cz/ze-zahranici/korejska-republika-bezpecnostni-opatreni-v-souvislosti-se-summitem-g-20" class="latestnewsnewsbox">
+			KOREJSKÁ REPUBLIKA: Bezpečnostní opatření v souvislosti se summitem G-20</a>
+	</li>
+	<li class="latestnewsnewsbox">
+		<a href="/web/20101111104352/http://www.ackcr.cz/volne-vzdelavaci-programy/kurz-delegat-cestovni-kancelare-6" class="latestnewsnewsbox">
+			Kurz Delegát cestovní kanceláře</a>
+	</li>
+	<li class="latestnewsnewsbox">
+		<a href="/web/20101111104352/http://www.ackcr.cz/z-domova/listopad-v-ceskem-muzeu-stribra" class="latestnewsnewsbox">
+			Listopad v Českém muzeu stříbra</a>
+	</li>
+	<li class="latestnewsnewsbox">
+		<a href="/web/20101111104352/http://www.ackcr.cz/volne-vzdelavaci-programy/galileo-prosincove-seminare-legislativni-zmeny" class="latestnewsnewsbox">
+			Galileo prosincové semináře - legislativní změny</a>
+	</li>
+</ul><div class="clear"></div></div>
+            <div class="box ">
+        <p style="text-align: center;"><strong>Naše projekty:</strong></p>
+<p style="text-align: center;"><a href="/web/20101111104352/http://www.ackcr.cz/pod-kridly-asociace/" title="Více informací o projektu."><img src="/web/20101111104352im_/http://www.ackcr.cz/images/stories/logo_podkridlyasociace.png" alt="ACK ČR- Pod křídly asociace" title="Pod křídly asociace" width="134" height="112" /></a></p>
+<p style="text-align: center;"><a href="/web/20101111104352/http://www.ackcr.cz/asociace-partnerem-travel/" title="Více informací o projektu."><img src="/web/20101111104352im_/http://www.ackcr.cz/images/stories/logo_dottravel.png" alt=".Travel" width="142" height="44" /></a></p><div class="clear"></div></div>
+            <div class="box ">
+                        <h2>Anketa</h2>
+        <form action="/web/20101111104352/http://www.ackcr.cz/index.php" method="post" name="form2">
+
+<table width="95%" border="0" cellspacing="0" cellpadding="1" align="center" class="poll">
+<thead>
+	<tr>
+		<td style="font-weight: bold;">
+			Chystáte se v zimě na hory?		</td>
+	</tr>
+</thead>
+	<tr>
+		<td align="center">
+			<table class="pollstableborder" cellspacing="0" cellpadding="0" border="0">
+							<tr>
+					<td class="sectiontableentry2" valign="top">
+						<input type="radio" name="voteid" id="voteid169" value="169" alt="169" />
+					</td>
+					<td class="sectiontableentry2" valign="top">
+						<label for="voteid169">
+							Ano						</label>
+					</td>
+				</tr>
+											<tr>
+					<td class="sectiontableentry1" valign="top">
+						<input type="radio" name="voteid" id="voteid170" value="170" alt="170" />
+					</td>
+					<td class="sectiontableentry1" valign="top">
+						<label for="voteid170">
+							Ne						</label>
+					</td>
+				</tr>
+										</table>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<div align="center">
+				<input type="submit" name="task_button" class="button" value="Hlasovat" />
+				&nbsp;
+				<input type="button" name="option" class="button" value="Výsledky" onclick="document.location.href='/index.php?option=com_poll&amp;id=28%3Achystate-se-v-zime-na-hory&amp;lang=cs'" />
+			</div>
+		</td>
+	</tr>
+</table>
+
+	<input type="hidden" name="option" value="com_poll" />
+	<input type="hidden" name="task" value="vote" />
+	<input type="hidden" name="id" value="28" />
+	<input type="hidden" name="b16198eaef0e7e00c8a7541cf835eccd" value="1" /></form><div class="clear"></div></div>
+            <div class="box ">
+        <p style="text-align: center;"><strong>Mediální partneři:</strong></p>
+<p style="text-align: center;"><a href="/web/20101111104352/http://www.cestovni-ruch.cz/" target="_blank" title="Cestovní ruch"><img src="/web/20101111104352im_/http://www.ackcr.cz/images/stories/logo_cestruch.gif" alt="Cestovní ruch" title="Cestovní ruch" /></a> <a href="/web/20101111104352/http://www.cot.cz/" target="_blank" title="COT Business"><img src="/web/20101111104352im_/http://www.ackcr.cz/images/stories/logo_cot.gif" alt="COT Business" title="COT Business" /></a></p>
+<p style="text-align: center;"><a href="/web/20101111104352/http://www.seznam.cz/" target="_blank"><img style="border: 0pt none;" src="/web/20101111104352im_/http://www.ackcr.cz/images/stories/seznam.gif" alt="Logo Seznam.cz." title="Logo Seznam.cz." width="155" height="55" /></a></p><div class="clear"></div></div>
+            <div class="box newsletter">
+                        <h2>Newsletter</h2>
+        <script type="text/javascript" language="Javascript"><!--
+	function cmm_gomodtask() {
+		var subscriber_name = document.communicatorMod.subscriber_name.value;
+		var subscriber_email;
+		var max_length = 30;
+		var filter=/^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i
+
+		if (filter.test(document.communicatorMod.subscriber_email.value)) {
+			subscriber_email = document.communicatorMod.subscriber_email.value;
+			var a = true;
+		} else {
+			alert("Prosím zadejte platný email.");
+			var a = true; return false;
+		}
+		try {
+					if(document.communicatorMod.subscriber_name.length > max_length) {
+				alert("Please enter use a shorter Subscriber Name. Thanks.");
+				return false;
+			}
+					if(document.communicatorMod.subscriber_name.length < 1) {
+				alert("Please enter a Subscriber Name. Thanks.");
+				return false;
+			}
+					}
+		catch(e) {}
+		return true;
+	} // -->
+	</script>
+<form method="post" name="communicatorMod"
+	action="/web/20101111104352/http://www.ackcr.cz/component/communicator/lang-cs">
+<p>   <span class="smallgrey">
+		<label for="subscriber_name">Jméno</label></span>
+	<input type="text" id="subscriber_name" style="font-size: smaller;" name="subscriber_name" class="inputbox"
+	value="" />
+<br /><br />	<span class="smallgrey">
+		<label for="subscriber_email">E-mail</label></span>
+   <input type="text" id="subscriber_email" name="subscriber_email" style="font-size: smaller;" class="inputbox"
+		value="" /><br />
+<br /><input name="sender" type="hidden" value="module" />
+<!--<input name="subscribe_type[]" type="checkbox" class="checkbox" id="lm_expert_info" value="35" />
+<label for="lm_expert_info">Odborné informace</label><br />
+<input name="subscribe_type[]" type="checkbox" class="checkbox" id="lm_public_info" value="76" checked="checked" />
+<label for="lm_public_info">Informace pro veřejnost</label><br />
+<input name="subscribe_type[]" type="checkbox" class="checkbox" id="lm_novinari_info" value="100" />
+<label for="lm_novinari_info">Informace pro novináře</label>-->   <input type="hidden" name="task" value="subscribe" />
+   <input type="submit" class="button" value="Odebírat"
+		onclick="return cmm_gomodtask();" />
+</p>	<input type="hidden" name="Itemid" value="" />
+	<input type="hidden" name="acca25db76ebd8f781134313c14c120a" value="1" /></form>
+<div class="clear"></div></div>
+            <div class="box  kontakt">
+                        <h2>Kontakt</h2>
+        <p><strong>ACK ČR</strong>, Lípová 15<br /> 120 44 Praha 2<br />Tel: 224 914 543<br /> Fax: 224 914 674<br /> E-mail: <a href="mailto:ackcr@ackcr.cz">ackcr@ackcr.cz</a></p><div class="clear"></div></div>
+     
+                    
+        </div><!-- /panel_right -->
+      </div><!-- /panel_right_wrapper02 -->
+    </div><!-- /panel_right_wrapper01 -->
+    
+    <div id="footer_wrapper">
+      <div id="footer">
+        <div id="footer_left">
+          Copyright © 2009 ACK ČR. Všechna práva vyhrazena.<br />
+          Design &amp; programming: <a href="/web/20101111104352/http://www.wmp.cz/">World Media Partners s.r.o.</a><br />
+                   <ul class="menu"><li class="item351"><a href="/web/20101111104352/http://www.ackcr.cz/mapa-stranek"><span>Mapa stránek</span></a></li><li class="item360"><span class="separator"><span>|</span></span></li><li class="item352"><a href="/web/20101111104352/http://www.ackcr.cz/pravni-dolozka"><span>Právní doložka</span></a></li></ul>
+                 </div>
+        <div id="footer_right">
+          <img src="/web/20101111104352im_/http://www.ackcr.cz/templates/ackr/img/icon_rss.png" title="RSS" alt="RSS" /> RSS aktuality pro:<br />
+          <ul class="menu"><li class="item356"><a href="/web/20101111104352/http://www.ackcr.cz/odborniky"><span>odborníky</span></a></li><li class="item358"><span class="separator"><span>|</span></span></li><li class="item355"><a href="/web/20101111104352/http://www.ackcr.cz/verejnost"><span>veřejnost</span></a></li><li class="item359"><span class="separator"><span>|</span></span></li><li class="item357"><a href="/web/20101111104352/http://www.ackcr.cz/novinare"><span>novináře</span></a></li></ul>
+        </div>
+        
+        <div class="clear"></div>
+        
+      </div><!-- /footer -->
+    </div><!-- /footer_wrapper -->    
+  </div><!-- /container -->
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-393856-14']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? '/web/20101111104352/https://ssl' : '/web/20101111104352/http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+
+</script>
+<script language="JavaScript" type="text/javascript">
+<!--
+document.write ('<img src="/web/20101111104352/http://toplist.cz/dot.asp?id=840388&amp;http='+escape(document.referrer)+'&amp;wi='+escape(window.screen.width)+'&amp;he='+escape(window.screen.height)+'&amp;t='+escape(document.title)+'" width="1" height="1" border=0 alt="TOPlist" />');
+//--></script>
+<noscript><img src="/web/20101111104352im_/http://toplist.cz/dot.asp?id=840388" border="0"
+alt="TOPlist" width="1" height="1" /></noscript>
+<!--[if lte IE 6]>
+<script language="javascript" type="text/javascript">
+window.onload = function() { 
+  alert('Stránky bohužel nejsou optimalizovány pro prohlížeč Internet Explorer verze 6 a níže. Pro optimální prohlížení si zaktualizujte prohlížeč či použijte jiný typ.');
+}
+</script>
+<![endif]-->
+</body>
+</html>
+
+
+
+
+<!--
+     FILE ARCHIVED ON 10:43:52 Nov 11, 2010 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 10:33:06 Mar 26, 2014.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+-->
