@@ -48,19 +48,24 @@
 //   number of incoming tourists
 
 import de.bezier.data.XlsReader;
+import prohtml.HtmlTree;
+import prohtml.HtmlElement;
 
 final int w = 640;
 final int h = 480;
 
-final String file_ackcr = "data/ackcr.html";
+final String file_ackcr = "data/ackcr.htm";
 final String file_suicides = "data/401211p10.xls";
 
+// Columns:
+// okres_name
+// suicides_2010
 Table
 loadSuicides() {
   XlsReader reader;
-  Table suicides;
-  
   reader = new XlsReader(this, file_suicides);
+  
+  Table suicides;
   suicides = new Table();
   suicides.addColumn("okres_name");
   suicides.addColumn("suicides_2010");
@@ -101,15 +106,16 @@ loadSuicides() {
 
 Table
 loadAgencies() {
-  //XML root = loadXML(file_ackcr);
-  // Use proHTML processing library
+  HtmlTree htmlTree = new HtmlTree(file_ackcr);
+  HtmlElement root = htmlTree.pageTree;
+  root.printElementTree("");
   return new Table();
 }
 
 void setup() {
   size(w, h);
   
-  Table suicides = loadSuicides();
+  //Table suicides = loadSuicides();
   
   loadAgencies();
   
