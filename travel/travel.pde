@@ -59,6 +59,23 @@ import org.ccil.cowan.tagsoup.Parser;
 import java.io.FileReader;
 import java.io.FileNotFoundException;
 
+import javax.xml.transform.Source;
+import javax.xml.transform.sax.SAXSource;
+import javax.xml.transform.dom.DOMResult;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.TransformerException;
+
+import org.w3c.dom.Node;
+//import org.w3c.dom.Document;
+
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.select.Elements;
+import org.jsoup.nodes.Element;
+
+import java.util.regex.Pattern;
+import java.util.regex.Matcher;
+
 final int w = 640;
 final int h = 480;
 
@@ -66,6 +83,10 @@ final int h = 480;
 //final String file_ackcr = "ackcr_nodia.htm";
 final String file_ackcr = "ackcr.htm";
 final String file_suicides = "401211p10.xls";
+
+final String addrPatStr = "[\\w ]*?[ \\.][\\w/]+?, [(\\d{3} ??\\d{2} [\\w ]*)([\\w ]* \\d{3} ??\\d{2})]";
+// TODO: Refine pattern so that it matches Usti nad Orlici ...
+Pattern addrPat;
 
 // Columns:
 // okres_name
@@ -115,30 +136,67 @@ loadSuicides() {
   return suicides;
 }
 
-class AckcrHandler extends DefaultHandler {
-  public void startElement(String uri, String name, String qName, Attributes atts) {
-    println(uri);
-    println(name);
-    println(qName);
-    println(atts);
-    println("");
-  }
-  
-  public void endElement(String uri, String name, String qName) {
-  }
+void processUrl(String url, TableRow tr) {
+  String urlFixed = url.substring(20);
+  tr.setString("url", urlFixed);
 }
 
-Table
-loadAgencies()
-throws FileNotFoundException, IOException, SAXException {
-  Parser p = new Parser();
-  ContentHandler h = new AckcrHandler();
-  p.setContentHandler(h);
-  FileReader r = null;
+void processNameElem(Element elem, TableRow tr) {
+  String name = elem.text();
+  tr.setString("name", name);
+  String url = elem.attr("href");
+  processUrl(url, tr);
+}
+
+void processAddressString(String s, TableRow tr) {
+  tr.setString("address", s);
+  Matcher matcher = addrPat.matcher(s);
+  if (!matcher.find()) {
+    println(s);
+  }
+  //String[] parts = split(s, ',');
+  //assert parts.length >= 2;
+  //String[] cityParts = split(parts[1], ' ');
+  //println(cityParts);
+}
+
+void processAddressElem(Element elem, TableRow tr) {
+  String address = elem.text();
+  processAddressString(address, tr);
+}
+
+void processMemberElem(Element memberElem, TableRow tr) {
+  Element nameElem = memberElem.select("h3 > a").first();
+  processNameElem(nameElem, tr);
+  Element addressElem = memberElem.select("div.adresa").first();
+  processAddressElem(addressElem, tr);
+}
+
+Table loadAgencies() {
   String fileName = dataPath(file_ackcr);
-  r = new FileReader(fileName);
-  p.parse(new InputSource(r));
-  return new Table();
+  File input = new File(fileName);
+  Document doc = null;
+  try {
+    doc = Jsoup.parse(input, "UTF-8", "http://www.ackcr.cz/clenove-2");
+  } catch (IOException e) {
+    println("IOException");
+  }
+  
+  Table addresses;
+  addresses = new Table();
+  addresses.addColumn("name");
+  addresses.addColumn("url");
+  addresses.addColumn("address");
+  addresses.addColumn("street");
+  addresses.addColumn("zip");
+  addresses.addColumn("city");
+  
+  Elements memberElems = doc.select("div.clen");
+  for (Element memberElem : memberElems) {
+    processMemberElem(memberElem, addresses.addRow());
+  }
+  
+  return addresses;
 }
 
 void setup() {
@@ -146,15 +204,10 @@ void setup() {
   
   //Table suicides = loadSuicides();
   
-  try {
-    loadAgencies();
-  } catch (FileNotFoundException e) {
-    println("FileNotFoundException");
-  } catch (IOException e) {
-    println("IOException");
-  } catch (SAXException e) {
-    println("SAXException");
-  }
+  addrPat = Pattern.compile(addrPatStr);
+  
+  Table agencies = loadAgencies();
+  saveTable(agencies, "agencies.csv");
   
   noLoop();
 }
