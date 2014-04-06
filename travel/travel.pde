@@ -48,30 +48,12 @@
 //   number of incoming tourists
 
 import de.bezier.data.XlsReader;
-import prohtml.HtmlTree;
-import prohtml.HtmlElement;
-import org.xml.sax.helpers.DefaultHandler;
-import org.xml.sax.Attributes;
-import org.xml.sax.ContentHandler;
-import org.xml.sax.InputSource;
-import org.xml.sax.SAXException;
-import org.ccil.cowan.tagsoup.Parser;
-import java.io.FileReader;
-import java.io.FileNotFoundException;
-
-import javax.xml.transform.Source;
-import javax.xml.transform.sax.SAXSource;
-import javax.xml.transform.dom.DOMResult;
-import javax.xml.transform.TransformerFactory;
-import javax.xml.transform.TransformerException;
-
-import org.w3c.dom.Node;
-//import org.w3c.dom.Document;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 import org.jsoup.nodes.Element;
+// http://jsoup.org/
 
 import java.util.regex.Pattern;
 import java.util.regex.Matcher;
@@ -86,6 +68,7 @@ final String file_suicides = "401211p10.xls";
 
 final String addrPatStr = "[\\w ]*?[ \\.][\\w/]+?, [(\\d{3} ??\\d{2} [\\w ]*)([\\w ]* \\d{3} ??\\d{2})]";
 // TODO: Refine pattern so that it matches Usti nad Orlici ...
+// http://docs.oracle.com/javase/tutorial/essential/regex/index.html
 Pattern addrPat;
 
 // Columns:
