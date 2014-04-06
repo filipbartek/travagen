@@ -50,12 +50,22 @@
 import de.bezier.data.XlsReader;
 import prohtml.HtmlTree;
 import prohtml.HtmlElement;
+import org.xml.sax.helpers.DefaultHandler;
+import org.xml.sax.Attributes;
+import org.xml.sax.ContentHandler;
+import org.xml.sax.InputSource;
+import org.xml.sax.SAXException;
+import org.ccil.cowan.tagsoup.Parser;
+import java.io.FileReader;
+import java.io.FileNotFoundException;
 
 final int w = 640;
 final int h = 480;
 
-final String file_ackcr = "data/ackcr.htm";
-final String file_suicides = "data/401211p10.xls";
+//final String file_ackcr = "C:\\Users\\TTT\\Documents\\GitHub\\travagen\\travel\\data\\ackcr.htm";
+//final String file_ackcr = "ackcr_nodia.htm";
+final String file_ackcr = "ackcr.htm";
+final String file_suicides = "401211p10.xls";
 
 // Columns:
 // okres_name
@@ -63,6 +73,7 @@ final String file_suicides = "data/401211p10.xls";
 Table
 loadSuicides() {
   XlsReader reader;
+  println(dataPath(""));
   reader = new XlsReader(this, file_suicides);
   
   Table suicides;
@@ -104,11 +115,29 @@ loadSuicides() {
   return suicides;
 }
 
+class AckcrHandler extends DefaultHandler {
+  public void startElement(String uri, String name, String qName, Attributes atts) {
+    println(uri);
+    println(name);
+    println(qName);
+    println(atts);
+    println("");
+  }
+  
+  public void endElement(String uri, String name, String qName) {
+  }
+}
+
 Table
-loadAgencies() {
-  HtmlTree htmlTree = new HtmlTree(file_ackcr);
-  HtmlElement root = htmlTree.pageTree;
-  root.printElementTree("");
+loadAgencies()
+throws FileNotFoundException, IOException, SAXException {
+  Parser p = new Parser();
+  ContentHandler h = new AckcrHandler();
+  p.setContentHandler(h);
+  FileReader r = null;
+  String fileName = dataPath(file_ackcr);
+  r = new FileReader(fileName);
+  p.parse(new InputSource(r));
   return new Table();
 }
 
@@ -117,7 +146,15 @@ void setup() {
   
   //Table suicides = loadSuicides();
   
-  loadAgencies();
+  try {
+    loadAgencies();
+  } catch (FileNotFoundException e) {
+    println("FileNotFoundException");
+  } catch (IOException e) {
+    println("IOException");
+  } catch (SAXException e) {
+    println("SAXException");
+  }
   
   noLoop();
 }
