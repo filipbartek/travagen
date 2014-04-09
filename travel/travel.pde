@@ -50,6 +50,8 @@
 final int w = 640;
 final int h = 480;
 
+Map map;
+
 void setup() {
   size(w, h);
   
@@ -60,6 +62,16 @@ void setup() {
   Table agencies = loadAgencies();
   saveTable(agencies, "agencies.csv");
   
+  map = new Map();
+  
   noLoop();
+}
+
+void draw() {
+  map.draw();
+}
+
+void mouseClicked() {
+  // TODO: Implement collision detection of mouse vs. shape
 }
 
