@@ -53,11 +53,10 @@ final int h = 480;
 void setup() {
   size(w, h);
   
-  Table suicides = loadSuicides();
-  saveTable(suicides, "suicides.csv");
+  //Table suicides = loadSuicides();
+  //saveTable(suicides, "suicides.csv");
   
-  addrPat = Pattern.compile(addrPatStr);
-  
+  initPats();
   Table agencies = loadAgencies();
   saveTable(agencies, "agencies.csv");
   

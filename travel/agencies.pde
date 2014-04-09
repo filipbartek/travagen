@@ -8,18 +8,26 @@ import java.util.regex.Pattern;
 import java.util.regex.Matcher;
 
 final String file_ackcr = "ackcr.htm";
-//final String file_ackcr = "C:\\Users\\TTT\\Documents\\GitHub\\travagen\\travel\\data\\ackcr.htm";
-//final String file_ackcr = "ackcr_nodia.htm";
 
-final String addrPatStr =
-//"((?<street1>[\\w ]*?) )|(?<street2>[\\w ]*?\\.)(?<number>[\\w/]+?), [(\\d{3} ??\\d{2} [\\w ]*)([\\w ]* \\d{3} ??\\d{2})]";
-"(?U)\\A(?:P.O.BOX \\d+)?(?<street>[\\w. ]*[\\w.]) (?<number>[\\w/]+), (?<zip>\\d{3} \\d{2}) (?<city>[\\w- ]*)(?:, (?<county>[\\w- ]*))?\\Z";
-// TODO: Refine pattern so that it matches Usti nad Orlici ...
+final String[] addrPatStrs = {
+"(?U)\\A(?:P\\.O\\.BOX \\d+, )?(?<street>[\\w. ]*\\w\\.?) (?<number>\\w[\\w/]*)(?:,[\\w ]+)?, (?<zip>\\d{3} ?\\d{2}) (?<city>[\\w- ]+)(?:, (?<county>[\\w- ]+))?\\Z",
+"(?U)\\A(?:P\\.O\\.BOX \\d+, )?(?<street>[\\w. ]*\\w)\\.(?<number>\\w[\\w/]*)(?:,[\\w ]+)?, (?<zip>\\d{3} ?\\d{2}) (?<city>[\\w- ]+)(?:, (?<county>[\\w- ]+))?\\Z",
+"(?U)\\A(?:P\\.O\\.BOX \\d+, )?(?<street>[\\w. ]*\\w\\.?) (?<number>\\w[\\w/]*)(?:,[\\w ]+)?, (?<city>[\\w- ]+) (?<zip>\\d{3} ?\\d{2})(?:, (?<county>[\\w- ]+))?\\Z"
+};
+Pattern[] addrPats;
 // http://docs.oracle.com/javase/tutorial/essential/regex/index.html
-Pattern addrPat;
+
+void initPats() {
+  int n = addrPatStrs.length;
+  addrPats = new Pattern[n];
+  for (int i = 0; i < n; i++) {
+    String addrPatStr = addrPatStrs[i];
+    addrPats[i] = Pattern.compile(addrPatStr);
+  }
+}
 
 void processUrl(String url, TableRow tr) {
-  String urlFixed = url.substring(20);
+  String urlFixed = url.substring(20); // Remove archive.org prefix
   tr.setString("url", urlFixed);
 }
 
@@ -30,29 +38,32 @@ void processNameElem(Element elem, TableRow tr) {
   processUrl(url, tr);
 }
 
-void processAddressString(String s, TableRow tr) {
+boolean processAddressString(String s, TableRow tr) {
   tr.setString("address", s);
-  Matcher matcher = addrPat.matcher(s);
-  if (!matcher.find()) {
-    println(s);
-  } else {
-    tr.setString("street", matcher.group("street"));
-    tr.setString("number", matcher.group("number"));
-    tr.setString("zip", matcher.group("zip"));
-    tr.setString("city", matcher.group("city"));
+  for (Pattern addrPat : addrPats) {
+    Matcher matcher = addrPat.matcher(s);
+    if (matcher.find()) {
+      tr.setString("street", matcher.group("street"));
+      tr.setString("number", matcher.group("number"));
+      tr.setString("zip", matcher.group("zip"));
+      tr.setString("city", matcher.group("city"));
+      return true;
+    }
   }
+  println(s);
+  return false;
 }
 
-void processAddressElem(Element elem, TableRow tr) {
+boolean processAddressElem(Element elem, TableRow tr) {
   String address = elem.text();
-  processAddressString(address, tr);
+  return processAddressString(address, tr);
 }
 
-void processMemberElem(Element memberElem, TableRow tr) {
+boolean processMemberElem(Element memberElem, TableRow tr) {
   Element nameElem = memberElem.select("h3 > a").first();
   processNameElem(nameElem, tr);
   Element addressElem = memberElem.select("div.adresa").first();
-  processAddressElem(addressElem, tr);
+  return processAddressElem(addressElem, tr);
 }
 
 Table loadAgencies() {
@@ -76,8 +87,15 @@ Table loadAgencies() {
   addresses.addColumn("city");
   
   Elements memberElems = doc.select("div.clen");
+  int mismatches = 0;
   for (Element memberElem : memberElems) {
-    processMemberElem(memberElem, addresses.addRow());
+    boolean res = processMemberElem(memberElem, addresses.addRow());
+    if (!res) {
+      mismatches++;
+    }
+  }
+  if (mismatches > 0) {
+    println("mismatches: " + mismatches);
   }
   
   return addresses;
