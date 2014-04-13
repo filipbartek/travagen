@@ -1,17 +1,17 @@
+import java.util.Set;
+import java.util.HashSet;
+
 class Agencies {
   private static final String dataFilename = "ackcr.htm";
   private static final String processedFilename = "processed/agencies.csv";
   
   private static final float pointSize = 10.0f;
-  private static final float longitudeMin = 12.09081161f; // W; x-; 12º 05′ 26,92179″
-  private static final float longitudeMax = 18.85925389f; // E; x+; 18° 51´ 33.31399"
-  private static final float latitudeMax = 51.05570479f; // N; y-; 51º 03′ 20,53724″
-  private static final float latitudeMin = 48.5518078f; // S; y+; 48º 33′ 06,50807″
-
-  Table agencies = null;
   
-  public Agencies() {
-    loadAgencies();
+  Table agencies = null;
+  Set<Agency> agenciesSet = null;
+  
+  public Agencies(Map map) {
+    loadAgencies(map);
   }
   
   public void draw(PGraphics pg, float mapWidth, float mapHeight) {
@@ -19,53 +19,45 @@ class Agencies {
     color cFill = color(0, 0, 0);
     pg.fill(cFill);
     pg.ellipseMode(CENTER);
-    for (TableRow agency : agencies.rows()) {
-      drawAgency(pg, agency, mapWidth, mapHeight);
+    for (Agency agency : agenciesSet) {
+      agency.draw(pg);
+      //drawAgency(pg, agency, mapWidth, mapHeight);
     }
-    drawPoint(pg, 50.251944, 12.091389, mapWidth, mapHeight);
-    drawPoint(pg, 49.550278, 18.858889, mapWidth, mapHeight);
-    drawPoint(pg, 51.055556, 14.316111, mapWidth, mapHeight);
-    drawPoint(pg, 48.5525, 14.333056, mapWidth, mapHeight);
+    //drawPoint(pg, 50.251944, 12.091389, mapWidth, mapHeight);
+    //drawPoint(pg, 49.550278, 18.858889, mapWidth, mapHeight);
+    //drawPoint(pg, 51.055556, 14.316111, mapWidth, mapHeight);
+    //drawPoint(pg, 48.5525, 14.333056, mapWidth, mapHeight);
     pg.noFill();
     pg.popMatrix();
   }
   
-  private void drawAgency(PGraphics pg, TableRow agency, float mapWidth, float mapHeight) {
-    float latitude = agency.getFloat("latitude");
-    float longitude = agency.getFloat("longitude");
-    drawPoint(pg, latitude, longitude, mapWidth, mapHeight);
-    //drawPoint(pg, latitudeMin, longitude, mapWidth, mapHeight);
-    //drawPoint(pg, latitudeMax, longitude, mapWidth, mapHeight);
-    //drawPoint(pg, latitude, longitudeMin, mapWidth, mapHeight);
-    //drawPoint(pg, latitude, longitudeMax, mapWidth, mapHeight);
-    
-  }
-  
-  private void drawPoint(PGraphics pg, float latitude, float longitude, float mapWidth, float mapHeight) {
-    float x = map(longitude, longitudeMin, longitudeMax, 0, mapWidth);
-    float y = map(latitude, latitudeMax, latitudeMin, 0, mapHeight);
-    pg.ellipse(x, y, pointSize, pointSize);
-  }
-  
-  private void loadAgencies() {
-    loadAgenciesProcessed();
-    if (agencies == null) {
-      println("Loading agencies from HTM file");
-      loadAgenciesData();
-      saveTable(agencies, processedFilename, "csv");
+  private void loadAgencies(Map map) {
+    boolean loaded = loadAgenciesProcessed();
+    if (!loaded) {
+      loaded = loadAgenciesData();
+    }
+    if (loaded) {
+      agenciesSet = new HashSet<Agency>();
+      for (TableRow agencyRow : agencies.rows()) {
+        Agency agency = new Agency(agencyRow, map);
+        agenciesSet.add(agency);
+      }
     }
   }
   
-  private void loadAgenciesProcessed() {
+  private boolean loadAgenciesProcessed() {
+    boolean loaded = true;
     agencies = null;
     try {
       agencies = loadTable(processedFilename, "header");
     } catch (NullPointerException e) {
+      loaded = false;
     }
+    return loaded;
   }
   
-  private void loadAgenciesData() {
-    initAgencies();
+  private boolean loadAgenciesData() {
+    println("Loading agencies from HTM file");
     String dataFilenameAbsolute = dataPath(dataFilename);
     File input = new File(dataFilenameAbsolute);
     Document doc = null;
@@ -75,9 +67,11 @@ class Agencies {
       println("IOException");
     }
     if (doc == null) {
-      return;
+      return false;
     }
     loadDoc(doc);
+    saveTable(agencies, processedFilename, "csv");
+    return true;
   }
   
   private void initAgencies() {
@@ -90,6 +84,7 @@ class Agencies {
   }
   
   private void loadDoc(Document doc) {
+    initAgencies();
     Elements memberElems = doc.select("div.clen");
     for (Element memberElem : memberElems) {
       processMemberElem(memberElem, agencies.addRow());

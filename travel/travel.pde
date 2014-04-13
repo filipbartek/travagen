@@ -33,7 +33,7 @@ void setup() {
   pgRedraw = true;
   
   map = new Map();
-  agencies = new Agencies();
+  agencies = new Agencies(map);
   suicides = new Suicides(this);
   
   //noLoop();

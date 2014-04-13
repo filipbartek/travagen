@@ -2,8 +2,16 @@ class Map {
   private static final String filename = "map_cr_okres_highpolygon.svg";
   private static final String okresyFilename = "processed/okresy.csv";
   
-  private PShape shape;
-  private Table okresy;
+  private static final float lngMin = 12.09081161f; // W; x-; 12º 05′ 26,92179″
+  private static final float lngMax = 18.85925389f; // E; x+; 18° 51´ 33.31399"
+  private static final float latMax = 51.05570479f; // N; y-; 51º 03′ 20,53724″
+  private static final float latMin = 48.5518078f; // S; y+; 48º 33′ 06,50807″
+  
+  private float mapWidth = Float.NaN;
+  private float mapHeight = Float.NaN;
+  
+  private PShape shape = null;
+  private Table okresy = null;
   
   public Map() {
     loadFile();
@@ -16,6 +24,25 @@ class Map {
   
   public float getHeight() {
     return shape.height;
+  }
+  
+  public float getMapWidth() {
+    return mapWidth;
+  }
+  public float getMapHeight() {
+    return mapHeight;
+  }
+  public float getLatMin() {
+    return latMin;
+  }
+  public float getLatMax() {
+    return latMax;
+  }
+  public float getLngMin() {
+    return lngMin;
+  }
+  public float getLngMax() {
+    return lngMax;
   }
   
   private void initOkresy() {
@@ -37,6 +64,8 @@ class Map {
   
   private void loadFile() {
     shape = loadShape(filename);
+    mapWidth = shape.width;
+    mapHeight = shape.height;
     //shape.disableStyle();
   }
   
