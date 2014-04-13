@@ -17,8 +17,12 @@
 final int w = 800;
 final int h = 600;
 
-Map map;
-Agencies agencies;
+Map map = null;
+Agencies agencies = null;
+Suicides suicides = null;
+
+PGraphics pg = null;
+boolean pgRedraw = false;
 
 void setup() {
   size(w, h);
@@ -28,22 +32,12 @@ void setup() {
   pg = createGraphics(width, height);
   pgRedraw = true;
   
-  Suicides suicides = new Suicides();
-  Table suicidesTable = suicides.loadSuicides(this);
-  //saveTable(suicides, "suicides.csv");
-  
-  //initPats();
-  //Table agencies = loadAgencies();
-  //saveTable(agencies, "agencies.csv");
-  
   map = new Map();
   agencies = new Agencies();
+  suicides = new Suicides(this);
   
   //noLoop();
 }
-
-PGraphics pg;
-boolean pgRedraw;
 
 void draw() {
   if (pgRedraw) {
