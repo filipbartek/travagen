@@ -14,12 +14,14 @@
 //   number of travel agencies
 //   number of incoming tourists
 
-final int w = 800;
+final int w = 1024;
 final int h = 600;
 
-Map map = null;
+MapOkresy map = null;
 Agencies agencies = null;
 Suicides suicides = null;
+Okresy okresy = null;
+Guests guests = null;
 
 PGraphics pg = null;
 boolean pgRedraw = false;
@@ -32,43 +34,26 @@ void setup() {
   pg = createGraphics(width, height);
   pgRedraw = true;
   
-  map = new Map();
+  map = new MapOkresy();
   agencies = new Agencies(map);
   suicides = new Suicides(this);
-  
-  //noLoop();
+  guests = new Guests(this);
+  okresy = new Okresy(map, suicides, guests);
 }
 
 void draw() {
   if (pgRedraw) {
     pg.beginDraw();
-    //pg.scale(0.5);
-    map.draw(pg);
-    float mapWidth = map.getWidth();
-    float mapHeight = map.getHeight();
-    mapWidth *= 0.95;
-    mapHeight *= 0.95;
-    println(mapWidth);
-    println(mapHeight);
-    agencies.draw(pg, mapWidth, mapHeight);
+    okresy.draw(pg, false);
+    agencies.draw(pg);
     pg.endDraw();
     pgRedraw = false;
   }
   image(pg, 0, 0);
-  stroke(255, 255, 255);
-  line(0, mouseY, width, mouseY);
-  noStroke();
 }
 
 void mouseMoved() {
-  // TODO: Add interaction.
-  //map.updateSelected();
+  //agencies.updateMouse(mouseX, mouseY);
   //pgRedraw = true;
-  //print(".");
-}
-
-void mouseClicked() {
-  println(mouseX);
-  println(mouseY);
 }
 

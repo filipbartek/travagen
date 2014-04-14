@@ -1,37 +1,65 @@
 import java.util.Set;
 import java.util.HashSet;
 
+import java.net.URI;
+import java.net.URISyntaxException;
+
+// http://jsoup.org/
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.select.Elements;
+import org.jsoup.nodes.Element;
+
 class Agencies {
   private static final String dataFilename = "ackcr.htm";
   private static final String processedFilename = "processed/agencies.csv";
   
   private static final float pointSize = 10.0f;
   
-  Table agencies = null;
-  Set<Agency> agenciesSet = null;
+  private Table agencies = null;
+  private Set<Agency> agenciesSet = null;
+  private Agency selectedAgency = null;
   
-  public Agencies(Map map) {
+  public Agencies(MapOkresy map) {
     loadAgencies(map);
+    //agenciesSet.add(new Agency(50.251944, 12.091389, map));
+    //agenciesSet.add(new Agency(49.550278, 18.858889, map));
+    //agenciesSet.add(new Agency(51.055556, 14.316111, map));
+    //agenciesSet.add(new Agency(48.5525, 14.333056, map));
   }
   
-  public void draw(PGraphics pg, float mapWidth, float mapHeight) {
+  public void draw(PGraphics pg) {
     pg.pushMatrix();
-    color cFill = color(0, 0, 0);
-    pg.fill(cFill);
     pg.ellipseMode(CENTER);
     for (Agency agency : agenciesSet) {
       agency.draw(pg);
-      //drawAgency(pg, agency, mapWidth, mapHeight);
     }
-    //drawPoint(pg, 50.251944, 12.091389, mapWidth, mapHeight);
-    //drawPoint(pg, 49.550278, 18.858889, mapWidth, mapHeight);
-    //drawPoint(pg, 51.055556, 14.316111, mapWidth, mapHeight);
-    //drawPoint(pg, 48.5525, 14.333056, mapWidth, mapHeight);
-    pg.noFill();
     pg.popMatrix();
   }
   
-  private void loadAgencies(Map map) {
+  public void updateMouse(float x, float y) {
+    float bestDist = Float.POSITIVE_INFINITY;
+    Agency bestAgency = null;
+    for (Agency agency : agenciesSet) {
+      float dist = agency.pointDist(x, y);
+      if (dist < bestDist) {
+        bestDist = dist;
+        bestAgency = agency;
+      }
+    }
+    if (selectedAgency != bestAgency) {
+      redraw = true;
+    }
+    if (selectedAgency != null) {
+      selectedAgency.setSelected(false);
+    }
+    if (bestAgency != null) {
+      bestAgency.setSelected(true);
+      selectedAgency = bestAgency;
+    }
+  }
+  
+  private void loadAgencies(MapOkresy map) {
     boolean loaded = loadAgenciesProcessed();
     if (!loaded) {
       loaded = loadAgenciesData();
